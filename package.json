@@ -1,0 +1,19 @@
+{
+	"name": "pozol-cli",
+	"version": "1.0.0",
+	"description": "Small cli to initialize a node project",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/daniel-cmorales/pozol-js.git"
+	},
+	"author": "Daniel Morales, <daniel.cmorales3@gmai.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/daniel-cmorales/pozol-js/issues"
+	},
+	"homepage": "https://github.com/daniel-cmorales/pozol-js#readme"
+}
