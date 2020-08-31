@@ -1,4 +1,4 @@
-import { IUser } from '../../interfaces';
+import { IUser } from './user.interface';
 
 export default class UserService {
 	static getAll = async (): Promise<IUser[]> => {
