@@ -1,11 +1,11 @@
 {
-	"name": "@pozol/cli",
+	"name": "@daniel-cmorales/pozol-cli",
 	"version": "1.0.0",
 	"description": "Small cli to initialize a node project",
 	"main": "src/index.js",
 	"bin": {
-		"@pozol/create-project": "bin/create-project",
-		"create-project": "bin/create-project"
+		"@daniel-cmorales/create-pozol-project": "bin/create-pozol-project",
+		"create-pozol-project": "bin/create-pozol-project"
 	},
 	"publishConfig": {
 		"access": "public"
@@ -15,7 +15,10 @@
 	},
 	"keywords": [
 		"cli",
-		"create-project"
+		"create-pozol-project",
+		"pozoljs",
+		"pozol js",
+		"pozol"
 	],
 	"repository": {
 		"type": "git",
