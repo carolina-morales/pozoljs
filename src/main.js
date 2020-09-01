@@ -16,10 +16,22 @@ async function copyTemplateFiles(options) {
 	});
 }
 
+async function createFolder(options) {
+	const { targetDirectory } = options;
+	if (!fs.existsSync(targetDirectory)) {
+		fs.mkdirSync(targetDirectory);
+	} else {
+		return Promise.reject(new Error('Failed to create folder, maybe the folder already exists'));
+	}
+}
+
 async function initGit(options) {
 	const result = await execa('git', [ 'init' ], {
 		cwd: options.targetDirectory
 	});
+	if (fs.appendFileSync(options.targetDirectory + '\\' + '.gitignore', `./node_modules\n./dist\n.env`)) {
+		return Promise.reject(new Error('Failed to create gitignore file'));
+	}
 	if (result.failed) {
 		return Promise.reject(new Error('Failed to initialize Git'));
 	}
@@ -29,7 +41,7 @@ async function initGit(options) {
 export async function createProject(options) {
 	options = {
 		...options,
-		targetDirectory: options.targetDirectory || process.cwd()
+		targetDirectory: options.targetDirectory || process.cwd() + '\\' + options.directoryName
 	};
 
 	let currentFileUrl = import.meta.url;
@@ -41,6 +53,10 @@ export async function createProject(options) {
 		await access(templateDir, fs.constants.R_OK);
 
 		const tasks = new Listr([
+			{
+				title: 'Creating folder',
+				task: () => createFolder(options)
+			},
 			{
 				title: 'Copy project files',
 				task: () => copyTemplateFiles(options)
@@ -65,7 +81,7 @@ export async function createProject(options) {
 		console.log('%s Project ready', chalk.green.bold('DONE'));
 		return true;
 	} catch (error) {
-		console.error('%s Invalid template name', chalk.red.bold('ERROR'), error);
+		console.error('%s Error while create project', chalk.red.bold('ERROR'), error);
 		process.exit(1);
 	}
 }
