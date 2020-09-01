@@ -27,8 +27,8 @@ export function parseArgumentsIntoOptions(rawArgs) {
 	if (args['--generate']) {
 		obj = {
 			generate: args['--generate'] || false,
-			type: args._[0].toLowerCase() || '',
-			name: args._[1].toLowerCase() || ''
+			type: args._[0] || '',
+			name: args._[1] || ''
 		};
 	} else {
 		obj = {
