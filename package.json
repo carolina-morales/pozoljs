@@ -13,7 +13,14 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
-	"keywords": [ "cli", "create-pozol-project", "pozoljs", "pozol js", "pozol", "pozol-app" ],
+	"keywords": [
+		"cli",
+		"create-pozol-project",
+		"pozoljs",
+		"pozol js",
+		"pozol",
+		"pozol-app"
+	],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/daniel-cmorales/pozol-js.git"
@@ -29,7 +36,6 @@
 		"chalk": "^4.1.0",
 		"esm": "^3.2.25",
 		"execa": "^4.0.3",
-		"fs-extra": "^9.0.1",
 		"inquirer": "^7.3.3",
 		"listr": "^0.14.3",
 		"ncp": "^2.0.0",
