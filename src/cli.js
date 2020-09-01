@@ -44,7 +44,7 @@ export function parseArgumentsIntoOptions(rawArgs) {
 }
 
 async function promptForMissingOptions(options) {
-	const defaultTemplate = 'JavaScript';
+	const defaultTemplate = 'TypeScript';
 	const defaultDirectoryName = 'pozol-project';
 
 	if (options.skipPrompts) {
@@ -70,7 +70,7 @@ async function promptForMissingOptions(options) {
 			type: 'list',
 			name: 'template',
 			message: 'Please choose which project template to use',
-			choices: [ 'JavaScript', 'TypeScript' ],
+			choices: [ 'TypeScript' ],
 			default: defaultTemplate
 		});
 	}
