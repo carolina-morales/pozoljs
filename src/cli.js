@@ -2,6 +2,7 @@ import arg from 'arg';
 import inquirer from 'inquirer';
 import { createProject } from './main';
 import { generateCliElement } from '../lib/generate';
+import chalk from 'chalk';
 
 export function parseArgumentsIntoOptions(rawArgs) {
 	let obj = {};
@@ -96,9 +97,16 @@ async function promptForMissingOptions(options) {
 export async function cli(args) {
 	let options = parseArgumentsIntoOptions(args);
 	if (options.generate) {
-		await generateCliElement(options);
+		if (!await generateCliElement(options)) {
+			console.error('%s Error while generate', chalk.red.bold('ERROR'));
+		}
 	} else {
 		options = await promptForMissingOptions(options);
 		await createProject(options);
+		console.log(
+			`%s The pozol project was created. Go into the project: cd ${options.directoryName}`,
+			chalk.green('DONE')
+		);
+		console.log(chalk.blueBright('Happy hacking!'));
 	}
 }
