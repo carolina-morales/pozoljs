@@ -1,18 +1,53 @@
+import ServiceAbstract from '../../global/models/service.model';
 import { IUser } from './user.interface';
 
-export default class UserService {
-	static getAll = async (): Promise<IUser[]> => {
-		try {
-			const users: IUser[] = [
-				{
-					name: 'John',
-					lastname: 'Smith'
-				}
-			];
+export default class UserService extends ServiceAbstract {
+	private users: Array<IUser> = [];
 
-			return users;
+	findAll = async (): Promise<Array<IUser>> => {
+		try {
+			return this.users;
 		} catch (error) {
-			console.log('16', error);
+			throw error;
+		}
+	};
+
+	findById = async (): Promise<Array<IUser>> => {
+		try {
+			return this.users;
+		} catch (error) {
+			throw error;
+		}
+	};
+
+	findOne = async (): Promise<Array<IUser>> => {
+		try {
+			return this.users;
+		} catch (error) {
+			throw error;
+		}
+	};
+
+	save = async (): Promise<any> => {
+		try {
+			return true;
+		} catch (error) {
+			throw error;
+		}
+	};
+
+	update = async (): Promise<any> => {
+		try {
+			return true;
+		} catch (error) {
+			throw error;
+		}
+	};
+
+	delete = async (): Promise<any> => {
+		try {
+			return true;
+		} catch (error) {
 			throw error;
 		}
 	};

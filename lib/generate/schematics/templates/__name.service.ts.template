@@ -1,6 +1,7 @@
+import ServiceAbstract from '../../global/models/service.model';
 import { I<%= pascalCaseName %> } from './<%= lowerCaseName %>.interface';
 
-export default class <%= pascalCaseName %>Service {
+export default class <%= pascalCaseName %>Service extends ServiceAbstract {
 	private <%= camelCaseName %>: Array<I<%= pascalCaseName %>> = [];
 
 	findAll = async (): Promise<Array<I<%= pascalCaseName %>>> => {
