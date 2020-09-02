@@ -5,6 +5,6 @@ import <%= pascalCaseName %>Controller from './<%= lowerCaseName %>.controller';
 const <%= camelCaseName %>Ctrl = new <%= pascalCaseName %>Controller();
 const router = Router();
 
-router.get('/', <%= camelCaseName %>Ctrl.get<%= methodName %>);
+router.get('/', <%= camelCaseName %>Ctrl.get<%= pascalCaseName %>);
 
 export default router;
