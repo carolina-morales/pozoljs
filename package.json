@@ -1,6 +1,6 @@
 {
 	"name": "@daniel-cmorales/pozoljs",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"description": "Initialize a node/express project with typescript and create full components to develop your backend apps faster.",
 	"main": "src/index.js",
 	"bin": {
