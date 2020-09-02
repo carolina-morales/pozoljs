@@ -1,10 +1,10 @@
 {
-	"name": "@daniel-cmorales/pozoljs",
-	"version": "1.0.0",
+	"name": "@pozol/pozoljs",
+	"version": "0.1.0",
 	"description": "Small cli to initialize a node project",
 	"main": "src/index.js",
 	"bin": {
-		"@daniel-cmorales/pozoljs": "./bin/pozoljs",
+		"@pozol/pozoljs": "./bin/pozoljs",
 		"pozoljs": "./bin/pozoljs"
 	},
 	"publishConfig": {
@@ -13,14 +13,7 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
-	"keywords": [
-		"cli",
-		"create-pozol-project",
-		"pozoljs",
-		"pozol js",
-		"pozol",
-		"pozol-app"
-	],
+	"keywords": [ "cli", "create-pozol-project", "pozoljs", "pozol js", "pozol", "pozol-app" ],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/daniel-cmorales/pozol-js.git"
