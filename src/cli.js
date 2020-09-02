@@ -15,7 +15,6 @@ export function parseArgumentsIntoOptions(rawArgs) {
 			'--template': String,
 			'--generate': Boolean,
 			'--no-test': Boolean,
-			'-g': '--git',
 			'-y': '--yes',
 			'-i': '--install',
 			'-t': '--template',
