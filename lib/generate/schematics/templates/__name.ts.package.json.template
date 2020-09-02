@@ -1,16 +1,16 @@
 {
-	"name": "@pozol/pozol-cli",
+	"name": "<%= projectName %>",
 	"version": "1.0.0",
 	"description": "",
-	"main": "src/index.js",
+	"main": "index.js",
 	"scripts": {
 		"start": "node dist/index.js",
 		"dev": "tsc-watch --onSuccess \"node dist/index.js\" ",
 		"build": "tsc"
 	},
 	"keywords": [],
-	"author": "Daniel Morales",
-	"license": "MIT",
+	"author": "",
+	"license": "ISC",
 	"dependencies": {
 		"cors": "^2.8.5",
 		"dotenv": "^8.2.0",
