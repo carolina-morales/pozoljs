@@ -5,6 +5,7 @@ import path from 'path';
 import { promisify } from 'util';
 import execa from 'execa';
 import Listr from 'listr';
+import ejs from 'ejs';
 import { projectInstall } from 'pkg-install';
 
 const access = promisify(fs.access);
@@ -38,10 +39,20 @@ async function initGit(options) {
 	return;
 }
 
+async function initPackage(options) {
+	const directoryComponentTemplates = path.join(__dirname, '../lib/generate/schematics/templates');
+	let filePackageContent = fs.readFileSync(`${directoryComponentTemplates}\\__name.ts.package.json.template`, 'utf8');
+
+	filePackageContent = ejs.render(filePackageContent, { projectName: options.projectName });
+
+	if (fs.writeFileSync(`${options.targetDirectory}\\package.json`, filePackageContent))
+		return Promise.reject(new Error('Failed to create interface file'));
+}
+
 export async function createProject(options) {
 	options = {
 		...options,
-		targetDirectory: options.targetDirectory || process.cwd() + '\\' + options.directoryName
+		targetDirectory: options.targetDirectory || process.cwd() + '\\' + options.projectName
 	};
 
 	let currentFileUrl = import.meta.url;
@@ -58,16 +69,20 @@ export async function createProject(options) {
 				task: () => createFolder(options)
 			},
 			{
-				title: 'Copy project files',
+				title: 'Creating package json file',
+				task: () => initPackage(options)
+			},
+			{
+				title: 'Creating initial files',
 				task: () => copyTemplateFiles(options)
 			},
 			{
-				title: 'Initialize git',
+				title: 'Initializing git',
 				task: () => initGit(options),
 				enabled: () => options.git
 			},
 			{
-				title: 'Install dependencies',
+				title: 'Installing dependencies',
 				task: () =>
 					projectInstall({
 						cwd: options.targetDirectory

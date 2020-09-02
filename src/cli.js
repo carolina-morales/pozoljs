@@ -34,11 +34,11 @@ export function parseArgumentsIntoOptions(rawArgs) {
 		};
 	} else {
 		obj = {
-			directoryName: args._[0],
+			projectName: args._[0],
 			skipPrompts: args['--yes'] || false,
 			git: args['--git'] || false,
 			template: args['--template'],
-			runInstall: args['--install'] || false
+			runInstall: args['--install'] || true
 		};
 	}
 
@@ -47,23 +47,23 @@ export function parseArgumentsIntoOptions(rawArgs) {
 
 async function promptForMissingOptions(options) {
 	const defaultTemplate = 'TypeScript';
-	const defaultDirectoryName = 'pozol-project';
+	const defaultProjectName = 'pozol-project';
 
 	if (options.skipPrompts) {
 		return {
 			...options,
 			template: options.template || defaultTemplate,
-			directoryName: options.directoryName || defaultDirectoryName
+			projectName: options.projectName || defaultProjectName
 		};
 	}
 
 	const questions = [];
-	if (!options.directoryName) {
+	if (!options.projectName) {
 		questions.push({
 			type: 'text',
-			name: 'directoryName',
+			name: 'projectName',
 			message: 'Please type the project name',
-			default: defaultDirectoryName
+			default: defaultProjectName
 		});
 	}
 
@@ -91,7 +91,7 @@ async function promptForMissingOptions(options) {
 		...options,
 		template: options.template || answers.template,
 		git: options.git || answers.git,
-		directoryName: options.directoryName || answers.directoryName
+		projectName: options.projectName || answers.projectName
 	};
 }
 
@@ -119,7 +119,7 @@ export async function cli(args) {
 		console.log('');
 
 		console.log(chalk.green.bold('DONE'), `The pozol project was created`);
-		console.log(`Go into the project:`, chalk.yellow.bold(`cd ${options.directoryName}`));
+		console.log(`Go into the project:`, chalk.yellow.bold(`cd ${options.projectName}`));
 		console.log(chalk.blue('Happy hacking!'));
 	}
 }
