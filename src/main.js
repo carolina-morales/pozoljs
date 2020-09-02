@@ -78,7 +78,6 @@ export async function createProject(options) {
 
 		await tasks.run();
 
-		console.log('%s Project ready', chalk.green.bold('DONE'));
 		return true;
 	} catch (error) {
 		console.error('%s Error while create project', chalk.red.bold('ERROR'), error);

@@ -3,6 +3,7 @@ import inquirer from 'inquirer';
 import { createProject } from './main';
 import { generateCliElement } from '../lib/generate';
 import chalk from 'chalk';
+import figlet from 'figlet';
 
 export function parseArgumentsIntoOptions(rawArgs) {
 	let obj = {};
@@ -103,10 +104,22 @@ export async function cli(args) {
 	} else {
 		options = await promptForMissingOptions(options);
 		await createProject(options);
-		console.log(
-			`%s The pozol project was created. Go into the project: cd ${options.directoryName}`,
-			chalk.green('DONE')
-		);
-		console.log(chalk.blueBright('Happy hacking!'));
+
+		console.log('');
+
+		figlet('Pozoljs', function(err, data) {
+			if (err) {
+				console.log('Something went wrong...');
+				console.dir(err);
+				return;
+			}
+			console.log(data);
+		});
+
+		console.log('');
+
+		console.log(chalk.green.bold('DONE'), `The pozol project was created`);
+		console.log(`Go into the project:`, chalk.yellow.bold(`cd ${options.directoryName}`));
+		console.log(chalk.blue('Happy hacking!'));
 	}
 }
