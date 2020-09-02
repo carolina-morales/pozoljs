@@ -1,0 +1,10 @@
+import { Router } from 'express';
+
+import <%= pascalCaseName %>Controller from './<%= lowerCaseName %>.controller';
+
+const <%= camelCaseName %>Ctrl = new <%= pascalCaseName %>Controller();
+const router = Router();
+
+router.get('/', <%= camelCaseName %>Ctrl.get<%= methodName %>);
+
+export default router;

@@ -1,0 +1,19 @@
+import { Request, Response } from 'express';
+import <%= pascalCaseName %>Service from './<%= lowerCaseName %>.service';
+import { I<%= pascalCaseName %> } from './<%= lowerCaseName %>.interface';
+
+export default class <%= pascalCaseName %>Controller {
+	private <%= camelCaseName %>: Array<I<%= pascalCaseName %>> = [];
+
+	constructor(private _<%= camelCaseName %>Service = new <%= pascalCaseName %>Service()) {}
+
+	get<%= pascalCaseName %> = async (req: Request, res: Response): Promise<Response> => {
+		try {
+			this.<%= camelCaseName %> = await this._<%= camelCaseName %>Service.findAll();
+			return res.json({ test: this.<%= camelCaseName %> });
+		} catch (error) {
+			console.error(error);
+			return res.status(500).send(`An error ocurred in <%= pascalCaseName %>Controller.get<%= pascalCaseName %>: ${error}`);
+		}
+	};
+}

@@ -1,0 +1,53 @@
+import { I<%= pascalCaseName %> } from './<%= lowerCaseName %>.interface';
+
+export default class <%= pascalCaseName %>Service {
+	private <%= camelCaseName %>: Array<I<%= pascalCaseName %>> = [];
+
+	findAll = async (): Promise<Array<I<%= pascalCaseName %>>> => {
+		try {
+			return this.<%= camelCaseName %>;
+		} catch (error) {
+			throw error;
+		}
+	};
+
+	findById = async (): Promise<Array<I<%= pascalCaseName %>>> => {
+		try {
+			return this.<%= camelCaseName %>;
+		} catch (error) {
+			throw error;
+		}
+	};
+
+	findOne = async (): Promise<Array<I<%= pascalCaseName %>>> => {
+		try {
+			return this.<%= camelCaseName %>;
+		} catch (error) {
+			throw error;
+		}
+	};
+
+	save = async (): Promise<any> => {
+		try {
+			return true;
+		} catch (error) {
+			throw error;
+		}
+	};
+
+	update = async (): Promise<any> => {
+		try {
+			return true;
+		} catch (error) {
+			throw error;
+		}
+	};
+
+	delete = async (): Promise<any> => {
+		try {
+			return true;
+		} catch (error) {
+			throw error;
+		}
+	};
+}
