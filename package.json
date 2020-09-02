@@ -1,7 +1,7 @@
 {
 	"name": "@daniel-cmorales/pozoljs",
 	"version": "0.1.0",
-	"description": "Small cli to initialize a node project",
+	"description": "Initialize a node/express project with typescript and create full components to develop your backend apps faster.",
 	"main": "src/index.js",
 	"bin": {
 		"@daniel-cmorales/pozoljs": "./bin/pozoljs",
