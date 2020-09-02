@@ -46,7 +46,7 @@ export async function createProject(options) {
 
 	let currentFileUrl = import.meta.url;
 	currentFileUrl = currentFileUrl.replace('file:///', '');
-	const templateDir = path.resolve(currentFileUrl, '../../templates', options.template.toLowerCase());
+	const templateDir = path.resolve(currentFileUrl, '../../integrations', options.template.toLowerCase());
 	options.templateDirectory = templateDir;
 
 	try {
