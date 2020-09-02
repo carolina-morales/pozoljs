@@ -3,7 +3,7 @@
 ## Installing the CLI
 In your shell run
 ```shell
-npm install -g @pozol/pozoljs
+npm install -g @daniel-cmorales/pozoljs
 ```
 
 ## Create and installing modules of the pozol project
