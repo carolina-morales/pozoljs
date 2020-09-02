@@ -30,7 +30,7 @@ async function initGit(options) {
 	const result = await execa('git', [ 'init' ], {
 		cwd: options.targetDirectory
 	});
-	if (fs.appendFileSync(options.targetDirectory + '\\' + '.gitignore', `./node_modules\n./dist\n.env`)) {
+	if (fs.appendFileSync(options.targetDirectory + '\\' + '.gitignore', `node_modules\ndist\n.env`)) {
 		return Promise.reject(new Error('Failed to create gitignore file'));
 	}
 	if (result.failed) {
