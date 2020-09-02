@@ -1,7 +1,7 @@
 import arg from 'arg';
 import inquirer from 'inquirer';
 import { createProject } from './main';
-import { generateCliElement } from '../lib/generate/index';
+import { generateCliElement } from '../lib/generate';
 
 export function parseArgumentsIntoOptions(rawArgs) {
 	let obj = {};
@@ -36,7 +36,7 @@ export function parseArgumentsIntoOptions(rawArgs) {
 			skipPrompts: args['--yes'] || false,
 			git: args['--git'] || false,
 			template: args['--template'],
-			runInstall: args['--install'] || true
+			runInstall: args['--install'] || false
 		};
 	}
 
