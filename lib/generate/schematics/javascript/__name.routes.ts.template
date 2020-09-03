@@ -1,9 +1,0 @@
-const { Router } = require('express');
-
-const { get<%= pascalCaseName %> } = require('./<%= lowerCaseName %>.controller');
-
-const router = Router();
-
-router.get('/<%= camelCaseName %>', get<%= pascalCaseName %>);
-
-module.exports = router;

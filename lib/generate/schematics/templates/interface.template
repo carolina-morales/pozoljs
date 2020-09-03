@@ -1,3 +1,7 @@
+<% if (template == 'typescript') { %>
+
 export interface I<%= pascalCaseName %> {
 	name: string;
 }
+
+<% } %>
