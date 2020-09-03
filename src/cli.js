@@ -61,7 +61,7 @@ async function promptForMissingOptions(options) {
 		questions.push({
 			type: 'text',
 			name: 'projectName',
-			message: 'Please type the project name',
+			message: 'Please type the project name:',
 			default: defaultProjectName
 		});
 	}
@@ -70,7 +70,7 @@ async function promptForMissingOptions(options) {
 		questions.push({
 			type: 'list',
 			name: 'template',
-			message: 'Please choose which project template to use',
+			message: 'Please choose which project template to use:',
 			choices: [ 'TypeScript' ],
 			default: defaultTemplate
 		});
