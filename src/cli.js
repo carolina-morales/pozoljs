@@ -4,6 +4,7 @@ import { createProject } from './main';
 import { generateCliElement } from '../lib/generate';
 import chalk from 'chalk';
 import figlet from 'figlet';
+import { integrations } from '../utils/variables';
 
 export function parseArgumentsIntoOptions(rawArgs) {
 	let obj = {};
@@ -29,7 +30,8 @@ export function parseArgumentsIntoOptions(rawArgs) {
 		obj = {
 			generate: args['--generate'] || false,
 			type: args._[0] || '',
-			name: args._[1] || ''
+			name: args._[1] || '',
+			template: args['--template'] || ''
 		};
 	} else {
 		obj = {
@@ -71,7 +73,7 @@ async function promptForMissingOptions(options) {
 			type: 'list',
 			name: 'template',
 			message: 'Please choose which project template to use:',
-			choices: [ 'TypeScript' ],
+			choices: integrations,
 			default: defaultTemplate
 		});
 	}

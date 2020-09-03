@@ -1,0 +1,20 @@
+const _<%= camelCaseName %>Service = require('./<%= lowerCaseName %>.service');
+
+const <%= pascalCaseName %>Controller = {};
+
+<%= pascalCaseName %>Controller.get<%= pascalCaseName %> = async (req, res) => {
+	try {
+		const <%= camelCaseName %> = await _<%= camelCaseName %>Service.findAll();
+
+		if (<%= camelCaseName %>.length === 0) {
+			return res.status(404).json({ msg: 'Not found registers' });
+		}
+
+		return res.json({ <%= camelCaseName %>: <%= camelCaseName %> });
+	} catch (error) {
+		console.error('Error in <%= pascalCaseName %>Controller.get<%= pascalCaseName %>', error);
+		return res.status(500).send(error);
+	}
+};
+
+module.exports = <%= pascalCaseName %>Controller;
