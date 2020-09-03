@@ -13,20 +13,13 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
-	"keywords": [
-		"cli",
-		"create-pozol-project",
-		"pozoljs",
-		"pozol js",
-		"pozol",
-		"pozol-app"
-	],
+	"keywords": [ "cli", "create-pozol-project", "pozoljs", "pozol js", "pozol", "pozol-app" ],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/daniel-cmorales/pozol-js.git"
 	},
 	"author": "Daniel Morales, <daniel.cmorales3@gmai.com>",
-	"license": "ISC",
+	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/daniel-cmorales/pozol-js/issues"
 	},
