@@ -10,7 +10,7 @@ import UserRoutes from './api/user/user.routes';
 const server = express();
 
 // settings
-const url = '/api/test';
+const url = '/api';
 server.set('port', currentEnv.PORT || 3000);
 
 // middlewares

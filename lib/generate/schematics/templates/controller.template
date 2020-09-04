@@ -12,7 +12,7 @@ export default class <%= pascalCaseName %>Controller {
 	get<%= pascalCaseName %> = async (req: Request, res: Response): Promise<Response> => {
 		try {
 			this.<%= camelCaseName %> = await this._<%= camelCaseName %>Service.findAll();
-			return res.json({ test: this.<%= camelCaseName %> });
+			return res.json({ <%= camelCaseName %>: this.<%= camelCaseName %> });
 		} catch (error) {
 			console.error(error);
 			return res.status(500).send(`An error ocurred in <%= pascalCaseName %>Controller.get<%= pascalCaseName %>: ${error}`);
@@ -34,7 +34,7 @@ const <%= pascalCaseName %>Controller = {};
 			return res.status(404).json({ msg: 'Not found registers' });
 		}
 
-		return res.json({ <%= camelCaseName %>: <%= camelCaseName %> });
+		return res.json({ <%= camelCaseName %> });
 	} catch (error) {
 		console.error('Error in <%= pascalCaseName %>Controller.get<%= pascalCaseName %>', error);
 		return res.status(500).send(error);
