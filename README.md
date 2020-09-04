@@ -53,7 +53,7 @@ pozoljs [projectName]
 3. Choose if you want to initialize the project with git or not.
 4. Finally pozoljs build the project and it is going to install initial dependencies
 
-![Installing](assets/create-project-4.png)
+![Installing](assets/create-project.png)
 
 ### Files Structure <a name="files-structure"></a>
 
