@@ -40,14 +40,13 @@ async function initGit(options) {
 }
 
 async function initPackage(options) {
-	const directoryComponentTemplates = path.join(
-		__dirname,
-		'../lib/generate/schematics',
-		`/${options.template.toLowerCase()}`
-	);
-	let filePackageContent = fs.readFileSync(`${directoryComponentTemplates}\\__name.ts.package.json.template`, 'utf8');
+	const directoryComponentTemplates = path.join(__dirname, '../lib/generate/schematics/templates');
+	let filePackageContent = fs.readFileSync(`${directoryComponentTemplates}\\package.json.template`, 'utf8');
 
-	filePackageContent = ejs.render(filePackageContent, { projectName: options.projectName });
+	filePackageContent = ejs.render(filePackageContent, {
+		projectName: options.projectName,
+		template: options.template.toLowerCase()
+	});
 
 	if (fs.writeFileSync(`${options.targetDirectory}\\package.json`, filePackageContent))
 		return Promise.reject(new Error('Failed to create interface file'));

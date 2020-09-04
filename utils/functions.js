@@ -2,6 +2,7 @@ import fs from 'fs';
 import inquirer from 'inquirer';
 import Listr from 'listr';
 import path from 'path';
+import ejs from 'ejs';
 
 export const capitalize = (str) => {
 	if (typeof str !== 'string') return '';
@@ -25,16 +26,31 @@ export const camelCase = (str) => {
 	return str.charAt(0).toLowerCase() + str.slice(1);
 };
 
-export const readFileContent = async (options, type) => {
-	const pathTemplate = path.join(__dirname, `../lib/generate/schematics/${options.template.toLowerCase()}`);
-	return fs.readFileSync(`${pathTemplate}\\__name.${type}.ts.template`, 'utf8');
+export const createFiles = async (options, type) => {
+	const filePath = `${options.targetDirectory}\\${options.name.toLowerCase()}.${type}.${options.extensionFile}`;
+
+	const fileOptions = {
+		...getFileOptions(options.name),
+		template: options.template.toLowerCase()
+	};
+
+	let fileTemplate = await readFileContent(type);
+	fileTemplate = ejs.render(fileTemplate, fileOptions).trim();
+
+	if (fs.writeFileSync(filePath, fileTemplate, 'utf8'))
+		return Promise.reject(new Error(`Failed to create ${type} file`));
+
+	return true;
+};
+
+export const readFileContent = async (type) => {
+	const pathTemplate = path.join(__dirname, `../lib/generate/schematics/templates`);
+	return fs.readFileSync(`${pathTemplate}\\${type}.template`, 'utf8');
 };
 
 export const folderExists = async (options) => {
 	if (!fs.existsSync(options.targetDirectory)) {
-		return Promise.reject(
-			new Error(`Failed to create file. The folder: ${options.name.toLowerCase()} does not exists.`)
-		);
+		return false;
 	} else {
 		return true;
 	}
@@ -42,7 +58,6 @@ export const folderExists = async (options) => {
 
 export const createFolder = async (options) => {
 	const { targetDirectory } = options;
-	console.log(options);
 	if (!fs.existsSync(targetDirectory)) {
 		fs.mkdirSync(targetDirectory);
 		return true;
