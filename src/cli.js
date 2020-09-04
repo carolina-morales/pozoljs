@@ -39,7 +39,7 @@ export function parseArgumentsIntoOptions(rawArgs) {
 			skipPrompts: args['--yes'] || false,
 			git: args['--git'] || false,
 			template: args['--template'],
-			runInstall: args['--install'] || false
+			runInstall: args['--install'] || true
 		};
 	}
 
@@ -108,19 +108,29 @@ export async function cli(args) {
 
 		console.log('');
 
+		console.log(chalk.green.bold('DONE'), `The pozol project was created`);
+
+		console.log('');
+
+		console.log(chalk.rgb(0, 0, 0).bold.bgCyan('GREAT'), 'Thanks to use Pozoljs :)');
+		console.log('Do not forget to drink a cold pozol ;)');
+
+		console.log('');
+
+		console.log(`Go into the project:`, chalk.yellow.bold(`cd ${options.projectName}`));
+		console.log(chalk.blue('Happy hacking!'));
+
+		console.log('');
+
+		console.log(figlet.fontsSync());
+
 		figlet('Pozoljs', function(err, data) {
 			if (err) {
-				console.log('Something went wrong...');
+				console.log('Something went wrong when try to print the figlet...');
 				console.dir(err);
 				return;
 			}
 			console.log(data);
 		});
-
-		console.log('');
-
-		console.log(chalk.green.bold('DONE'), `The pozol project was created`);
-		console.log(`Go into the project:`, chalk.yellow.bold(`cd ${options.projectName}`));
-		console.log(chalk.blue('Happy hacking!'));
 	}
 }
