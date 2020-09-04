@@ -1,6 +1,6 @@
 {
 	"name": "@daniel-cmorales/pozoljs",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"description": "Initialize a node-express project with typescript or javascript and create full components to develop your backend apps faster.",
 	"main": "src/index.js",
 	"bin": {
@@ -13,7 +13,14 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
-	"keywords": [ "cli", "create-pozol-project", "pozoljs", "pozol js", "pozol", "pozol-app" ],
+	"keywords": [
+		"cli",
+		"create-pozol-project",
+		"pozoljs",
+		"pozol js",
+		"pozol",
+		"pozol-app"
+	],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/daniel-cmorales/pozol-js.git"
