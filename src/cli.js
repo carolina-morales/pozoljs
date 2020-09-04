@@ -4,7 +4,7 @@ import { createProject } from './main';
 import { generateCliElement } from '../lib/generate';
 import chalk from 'chalk';
 import figlet from 'figlet';
-import { integrations } from '../utils/variables';
+import { integrations, regex } from '../utils/variables';
 
 export function parseArgumentsIntoOptions(rawArgs) {
 	let obj = {};
@@ -26,7 +26,15 @@ export function parseArgumentsIntoOptions(rawArgs) {
 		}
 	);
 
-	if (args['--generate']) {
+	if (args['--generate'] || args['-g']) {
+		if (args._[0] && !regex.test(args._[0])) {
+			console.log(
+				chalk.red.bold('ERROR'),
+				'The name of the schema must not contain numbers or special characters'
+			);
+			return;
+		}
+
 		obj = {
 			generate: args['--generate'] || false,
 			type: args._[0] || '',
@@ -34,6 +42,14 @@ export function parseArgumentsIntoOptions(rawArgs) {
 			template: args['--template'] || ''
 		};
 	} else {
+		if (args._[0] && !regex.test(args._[0])) {
+			console.log(
+				chalk.red.bold('ERROR'),
+				'The name of the schema must not contain numbers or special characters'
+			);
+			return;
+		}
+
 		obj = {
 			projectName: args._[0],
 			skipPrompts: args['--yes'] || false,
@@ -88,6 +104,12 @@ async function promptForMissingOptions(options) {
 	}
 
 	const answers = await inquirer.prompt(questions);
+
+	if (!regex.test(answers.projectName) || !regex.test(options.projectName)) {
+		console.log(chalk.red.bold('ERROR'), 'The project name must not contain numbers or special characters');
+		return;
+	}
+
 	return {
 		...options,
 		template: options.template || answers.template,
@@ -121,8 +143,6 @@ export async function cli(args) {
 		console.log(chalk.blue('Happy hacking!'));
 
 		console.log('');
-
-		console.log(figlet.fontsSync());
 
 		figlet('Pozoljs', function(err, data) {
 			if (err) {
