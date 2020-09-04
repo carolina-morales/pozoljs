@@ -2,7 +2,7 @@ import { Router } from 'express';
 
 import UserController from './user.controller';
 
-const userCtrl = UserController;
+const userCtrl = new UserController();
 
 const router = Router();
 
