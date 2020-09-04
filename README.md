@@ -1,8 +1,8 @@
 # Pozol CLI
 
-Pozoljs is a package to initialize your node/express project with typescript and create full components to develop your backend apps faster.
+Pozoljs is a package to initialize your node-express project with typescript or javascript and create full components to develop your backend apps faster.
 
-Pozoljs will helps you to get a node/express project more escalable with a good estructure for folders and files.
+Pozoljs will helps you to get a node-express project more escalable with a good estructure for folders and files.
 
 Pozoljs is not a framework.
 
