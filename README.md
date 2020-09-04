@@ -57,7 +57,7 @@ pozoljs [projectName]
 
 ### Files Structure <a name="files-structure"></a>
 
-Pozoljs builds a node/express project with and initial structure of the folders and files. This one helps you to develop faster and escalable code. The initial structure is:
+Pozoljs builds a node-express project with and initial structure of the folders and files. This one helps you to develop faster and escalable code. The initial structure is:
 ```shell
 ├────src
 │    ├───api
@@ -107,8 +107,6 @@ pozoljs -g component user
 ```
 
 ### Create controller <a name="create-controller"></a>
-**This works if the folder already exists**
-\
 Run the command
 ```shell
 pozoljs -g controller [controllerName]
@@ -119,8 +117,6 @@ pozoljs -g controller user
 ```
 
 ### Create service <a name="create-service"></a>
-**This works if the folder already exists**
-\
 Run the command
 ```shell
 pozoljs -g service [serviceName]
@@ -131,8 +127,6 @@ pozoljs -g service user
 ```
 
 ### Create routes <a name="create-routes"></a>
-**This works if the folder already exists**
-\
 Run the command
 ```shell
 pozoljs -g routes [routesName]
@@ -143,13 +137,11 @@ pozoljs -g routes user
 ```
 
 ### Create interface <a name="create-interface"></a>
-**This works if the folder already exists**
-\
 Run the command
 ```shell
 pozoljs -g interface [interfaceName]
 ```
-For example: this one, create user.interface.ts file in user folder.
+For example: this one, create user.interface.ts file in user folder if it is a typescript project.
 ```shell
 pozoljs -g interface user
 ```
