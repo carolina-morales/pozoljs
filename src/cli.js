@@ -27,7 +27,7 @@ export function parseArgumentsIntoOptions(rawArgs) {
 	);
 
 	if (args['--generate'] || args['-g']) {
-		if (args._[0] && !regex.test(args._[0])) {
+		if (args._[0] && regex.test(args._[0])) {
 			console.log(
 				chalk.red.bold('ERROR'),
 				'The name of the schema must not contain numbers or special characters'
@@ -42,7 +42,7 @@ export function parseArgumentsIntoOptions(rawArgs) {
 			template: args['--template'] || ''
 		};
 	} else {
-		if (args._[0] && !regex.test(args._[0])) {
+		if (args._[0] && regex.test(args._[0])) {
 			console.log(
 				chalk.red.bold('ERROR'),
 				'The name of the schema must not contain numbers or special characters'

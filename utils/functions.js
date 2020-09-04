@@ -59,10 +59,7 @@ export const folderExists = async (options) => {
 export const createFolder = async (options) => {
 	const { targetDirectory } = options;
 	if (!fs.existsSync(targetDirectory)) {
-		fs.mkdirSync(targetDirectory);
-		return true;
-	} else {
-		return Promise.reject(new Error('Failed to create folder, maybe the folder already exists'));
+		return fs.mkdirSync(targetDirectory);
 	}
 };
 
