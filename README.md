@@ -22,19 +22,19 @@ Pozoljs is not a framework.
   - [Create interface](#create-interface)
 - [About the project](#about-project)
 
-## Installing the CLI <a name="installing"></a>
+## Installing the CLI :smile: <a name="installing"></a>
 In your shell run, this is going to install pozoljs globally. When the package is installed, you will can use `pozoljs` command to create the initial project and other files.
 ```shell
 npm install -g @daniel-cmorales/pozoljs
 ```
 
-## Quick start <a name="quick-start"></a>
+## Quick start :rocket: <a name="quick-start"></a>
 Run the command into the directory where your project will be created.
 ```shell
 pozoljs [projectName] --yes
 ```
 
-## The CLI <a name="the-cli"></a>
+## The CLI :book: <a name="the-cli"></a>
 
 ### Some concepts <a name="some-concepts"></a>
 
@@ -45,19 +45,14 @@ pozoljs [projectName] --yes
 5. **Interface:** the interface is using in typescript like a data type.
 
 ### Building your first project using pozoljs <a name="build-project"></a>
-1. Run the command into the directory where your project will be created.
+1. Run the command into the path where your project will be created.
 ```shell
 pozoljs [projectName]
 ```
-![Template](assets/create-project-1.png)
-
-2. You should choose the type project.
-![Template](assets/create-project-2.png)
-
+2. Should choose the type project.
 3. Choose if you want to initialize the project with git or not.
-![Git](assets/create-project-3.png)
+4. Finally pozoljs build the project and it is going to install initial dependencies
 
-4. Finally pozoljs build the project and install initial dependencies
 ![Installing](assets/create-project-4.png)
 
 ### Files Structure <a name="files-structure"></a>
