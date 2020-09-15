@@ -1,0 +1,112 @@
+<% if (language == 'typescript') { %>
+
+import { AbstractService } from '../../global/helpers/abstract.service';
+import { ISearch<%= pascalCase %>, I<%= pascalCase %> } from './<%= lowerCase %>.interface';
+
+export default class <%= pascalCase %>Service extends AbstractService {
+	private <%= camelCase %>: Array<I<%= pascalCase %>> = [];
+
+	findAll = async (): Promise<Array<I<%= pascalCase %>>> => {
+		try {
+			return this.<%= camelCase %>;
+		} catch (error) {
+			throw error;
+		}
+	};
+
+	findById = async (id: number): Promise<Array<I<%= pascalCase %>>> => {
+		try {
+			return this.<%= camelCase %>;
+		} catch (error) {
+			throw error;
+		}
+	};
+
+	findOne = async (<%= camelCase %>: ISearch<%= pascalCase %>): Promise<Array<I<%= pascalCase %>>> => {
+		try {
+			return this.<%= camelCase %>;
+		} catch (error) {
+			throw error;
+		}
+	};
+
+	save = async (<%= camelCase %>: I<%= pascalCase %>): Promise<any> => {
+		try {
+			return true;
+		} catch (error) {
+			throw error;
+		}
+	};
+
+	update = async (id: number, <%= camelCase %>: I<%= pascalCase %>): Promise<any> => {
+		try {
+			return true;
+		} catch (error) {
+			throw error;
+		}
+	};
+
+	delete = async (id: number): Promise<any> => {
+		try {
+			return true;
+		} catch (error) {
+			throw error;
+		}
+	};
+}
+
+<% } else { %>
+
+const <%= pascalCase %>Service = {};
+
+<%= pascalCase %>Service.findAll = async () => {
+	try {
+		return [];
+	} catch (error) {
+		throw error;
+	}
+};
+
+<%= pascalCase %>Service.findById = async (id) => {
+	try {
+		return [];
+	} catch (error) {
+		throw error;
+	}
+};
+
+<%= pascalCase %>Service.findOne = async (<%= camelCase %>) => {
+	try {
+		return [];
+	} catch (error) {
+		throw error;
+	}
+};
+
+<%= pascalCase %>Service.save = async (<%= camelCase %>) => {
+	try {
+		return true;
+	} catch (error) {
+		throw error;
+	}
+};
+
+<%= pascalCase %>Service.update = async (id, <%= camelCase %>) => {
+	try {
+		return true;
+	} catch (error) {
+		throw error;
+	}
+};
+
+<%= pascalCase %>Service.delete = async (id) => {
+	try {
+		return true;
+	} catch (error) {
+		throw error;
+	}
+};
+
+module.exports = <%= pascalCase %>Service;
+
+<% } %>

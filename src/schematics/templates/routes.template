@@ -1,0 +1,26 @@
+<% if (language == 'typescript') { %>
+
+import { Router } from 'express';
+
+import <%= pascalCase %>Controller from './<%= lowerCase %>.controller';
+
+const <%= camelCase %>Ctrl = new <%= pascalCase %>Controller();
+const router = Router();
+
+router.get('/', <%= camelCase %>Ctrl.get<%= pascalCase %>);
+
+export default router;
+
+<% } else { %>
+
+const { Router } = require('express');
+
+const { get<%= pascalCase %> } = require('./<%= lowerCase %>.controller');
+
+const router = Router();
+
+router.get('/<%= camelCase %>', get<%= pascalCase %>);
+
+module.exports = router;
+
+<% } %>

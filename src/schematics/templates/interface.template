@@ -1,0 +1,13 @@
+<% if (language == 'typescript') { %>
+
+export interface I<%= pascalCase %> {
+	id: number;
+	name: string;
+}
+
+export interface ISearch<%= pascalCase %> {
+	id?: number;
+	name?: string;
+}
+
+<% } %>
