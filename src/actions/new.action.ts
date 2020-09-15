@@ -21,11 +21,11 @@ export class NewAction extends AbstractAction {
 
 	public async handle(inputs: Input[], options: Input[]): Promise<void> {
 		try {
-			this.appName = inputs.find((input) => input.name === 'name')!.value as string;
-
 			await this.askForMissingPrompts(inputs);
 
+			this.appName = inputs.find((input) => input.name === 'name')!.value as string;
 			this.language = options.find((option) => option.name === 'language')!.value.toString().toLowerCase();
+
 			const directoryPath = options.find((option) => option.name === 'directory')!.value as string;
 			const directoryProject = join(directoryPath ? directoryPath : '', this.appName);
 
@@ -55,10 +55,11 @@ export class NewAction extends AbstractAction {
 		console.info(INFO_MESSAGES.PROJECT_INFORMATION_START);
 		console.info('');
 
+		const appName = inputs.find((input) => input.name === 'name')!.value as string;
 		const prompt: PromptModule = createPromptModule();
 		const questions: any[] = [];
 
-		if (!this.appName) {
+		if (!appName) {
 			questions.push(
 				generateInput(
 					'name',
