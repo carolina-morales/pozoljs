@@ -1,6 +1,6 @@
 <% if (language == 'typescript') { %>
 
-import { AbstractService } from '../../global/helpers/abstract.service';
+import { AbstractService } from '../../global/services/abstract.service';
 import { ISearch<%= pascalCase %>, I<%= pascalCase %> } from './<%= lowerCase %>.interface';
 
 export default class <%= pascalCase %>Service extends AbstractService {
