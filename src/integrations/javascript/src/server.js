@@ -4,13 +4,12 @@ const cors = require('cors');
 
 const currentEnv = require('./config/environments');
 
-const UserRoutes = require('./api/user/user.routes');
+const ApiRoutes = require('./api');
 
 // initialization
 const server = express();
 
 // settings
-const url = '/api/test';
 server.set('port', currentEnv.PORT || 3000);
 
 // middlewares
@@ -20,6 +19,6 @@ server.use(express.urlencoded({ extended: false }));
 server.use(express.json());
 
 // routes
-server.use(url, UserRoutes);
+ApiRoutes(server);
 
 module.exports = server;

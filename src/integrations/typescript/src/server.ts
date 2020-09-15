@@ -4,13 +4,12 @@ import cors from 'cors';
 
 import currentEnv from './config/environments';
 
-import UserRoutes from './api/user/user.routes';
+import ApiRoutes from './api';
 
 // initialization
 const server = express();
 
 // settings
-const url = '/api';
 server.set('port', currentEnv.PORT || 3000);
 
 // middlewares
@@ -20,6 +19,6 @@ server.use(urlencoded({ extended: false }));
 server.use(json());
 
 // routes
-server.use(url, UserRoutes);
+ApiRoutes(server);
 
 export default server;
