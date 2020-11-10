@@ -1,4 +1,4 @@
-import { AbstractService } from '../../global/services/abstract.service';
+import { AbstractService } from '../../global/helpers/abstract.service';
 import { ISearchUser, IUser } from './user.interface';
 
 export default class UserService extends AbstractService {
