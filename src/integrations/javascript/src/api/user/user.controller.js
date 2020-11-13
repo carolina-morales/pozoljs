@@ -4,13 +4,8 @@ const UserController = {};
 
 UserController.getUsers = async (req, res) => {
 	try {
-		const users = await _userService.findAll();
-
-		if (users.length === 0) {
-			return res.status(404).json({ msg: 'Not found registers' });
-		}
-
-		return res.json({ users: users });
+		const users = await _userService.find();
+		return res.json(users);
 	} catch (error) {
 		console.error('Error in UserController.getUsers', error);
 		return res.status(500).send(error);
@@ -18,5 +13,3 @@ UserController.getUsers = async (req, res) => {
 };
 
 module.exports = UserController;
-
-dasndlaksdnls;
