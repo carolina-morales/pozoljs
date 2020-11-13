@@ -1,22 +1,6 @@
 const UserService = {};
 
-UserService.findAll = async () => {
-	try {
-		return [];
-	} catch (error) {
-		throw error;
-	}
-};
-
-UserService.findById = async (id) => {
-	try {
-		return [];
-	} catch (error) {
-		throw error;
-	}
-};
-
-UserService.findOne = async (user) => {
+UserService.find = async (user) => {
 	try {
 		return [];
 	} catch (error) {

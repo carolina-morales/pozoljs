@@ -5,14 +5,14 @@ import <%= pascalCase %>Service from './<%= lowerCase %>.service';
 import { I<%= pascalCase %> } from './<%= lowerCase %>.interface';
 
 export default class <%= pascalCase %>Controller {
-	private <%= camelCase %>: Array<I<%= pascalCase %>> = [];
+	private <%= camelCase %>: I<%= pascalCase %>[] = [];
 
 	constructor(private _<%= camelCase %>Service = new <%= pascalCase %>Service()) {}
 
 	get<%= pascalCase %> = async (req: Request, res: Response): Promise<Response> => {
 		try {
-			this.<%= camelCase %> = await this._<%= camelCase %>Service.findAll();
-			return res.json({ <%= camelCase %>: this.<%= camelCase %> });
+			this.<%= camelCase %> = await this._<%= camelCase %>Service.find(req.query);
+			return res.json(this.<%= camelCase %>);
 		} catch (error) {
 			console.error(error);
 			return res.status(500).send(`An error ocurred in <%= pascalCase %>Controller.get<%= pascalCase %>: ${error}`);
@@ -28,12 +28,7 @@ const <%= pascalCase %>Controller = {};
 
 <%= pascalCase %>Controller.get<%= pascalCase %> = async (req, res) => {
 	try {
-		const <%= camelCase %> = await _<%= camelCase %>Service.findAll();
-
-		if (<%= camelCase %>.length === 0) {
-			return res.status(404).json({ msg: 'Not found registers' });
-		}
-
+		const <%= camelCase %> = await _<%= camelCase %>Service.find(req.query);
 		return res.json({ <%= camelCase %> });
 	} catch (error) {
 		console.error('Error in <%= pascalCase %>Controller.get<%= pascalCase %>', error);

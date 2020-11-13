@@ -4,25 +4,9 @@ import { AbstractService } from '../../global/helpers/abstract.service';
 import { ISearch<%= pascalCase %>, I<%= pascalCase %> } from './<%= lowerCase %>.interface';
 
 export default class <%= pascalCase %>Service extends AbstractService {
-	private <%= camelCase %>: Array<I<%= pascalCase %>> = [];
+	private <%= camelCase %>: I<%= pascalCase %>[] = [];
 
-	findAll = async (): Promise<Array<I<%= pascalCase %>>> => {
-		try {
-			return this.<%= camelCase %>;
-		} catch (error) {
-			throw error;
-		}
-	};
-
-	findById = async (id: number): Promise<Array<I<%= pascalCase %>>> => {
-		try {
-			return this.<%= camelCase %>;
-		} catch (error) {
-			throw error;
-		}
-	};
-
-	findOne = async (<%= camelCase %>: ISearch<%= pascalCase %>): Promise<Array<I<%= pascalCase %>>> => {
+	find = async (<%= camelCase %>: ISearch<%= pascalCase %>): Promise<I<%= pascalCase %>[]> => {
 		try {
 			return this.<%= camelCase %>;
 		} catch (error) {
@@ -59,23 +43,7 @@ export default class <%= pascalCase %>Service extends AbstractService {
 
 const <%= pascalCase %>Service = {};
 
-<%= pascalCase %>Service.findAll = async () => {
-	try {
-		return [];
-	} catch (error) {
-		throw error;
-	}
-};
-
-<%= pascalCase %>Service.findById = async (id) => {
-	try {
-		return [];
-	} catch (error) {
-		throw error;
-	}
-};
-
-<%= pascalCase %>Service.findOne = async (<%= camelCase %>) => {
+<%= pascalCase %>Service.find = async (<%= camelCase %>) => {
 	try {
 		return [];
 	} catch (error) {
