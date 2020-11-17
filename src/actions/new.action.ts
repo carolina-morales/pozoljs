@@ -13,6 +13,7 @@ import { render } from 'ejs';
 import { generateInput } from '../helpers/questions.helper';
 import { generateTask } from '../helpers/listr-tasks.helper';
 import chalk from 'chalk';
+import figlet from 'figlet';
 
 export class NewAction extends AbstractAction {
 	private copy = promisify(ncp);
@@ -44,7 +45,7 @@ export class NewAction extends AbstractAction {
 
 			const tasks = new Listr(lists);
 			await tasks.run();
-			console.info('');
+			this.finalMessage();
 		} catch (error) {
 			console.error(chalk.red.bold('ERROR'), error);
 			process.exit(1);
@@ -118,5 +119,17 @@ export class NewAction extends AbstractAction {
 		const result = await execa('npm', [ 'install' ], { cwd: destPath });
 
 		if (result.failed) throw new Error(ERROR_MESSAGES.NPM_INSTALLING_ERROR).message;
+	}
+
+	private finalMessage() {
+		figlet('Pozoljs', (err, data) => {
+			if (err) throw err.message;
+
+			console.log(data, '\n');
+			console.log('Go into the project: ', chalk.blue(`cd ${this.appName}`));
+			console.log('Execute de command: ', chalk.blue(`npm run dev`), '\n');
+			if (this.language === 'typescript') console.log('Generate build: ', chalk.blue(`npm run build`), '\n');
+			console.log('Thanks for using Pozoljs, you can learn more here: ', chalk.blue('https://github.com/daniel-cmorales/pozol-js.git'), '\n');
+		});
 	}
 }
