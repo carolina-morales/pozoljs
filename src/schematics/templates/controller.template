@@ -14,8 +14,42 @@ export default class <%= pascalCase %>Controller {
 			this.<%= camelCase %> = await this._<%= camelCase %>Service.find(req.query);
 			return res.json(this.<%= camelCase %>);
 		} catch (error) {
-			console.error(error);
+			console.error(`An error ocurred in <%= pascalCase %>Controller.get<%= pascalCase %>: ${error}`);
 			return res.status(500).send(`An error ocurred in <%= pascalCase %>Controller.get<%= pascalCase %>: ${error}`);
+		}
+	};
+
+	save<%= pascalCase %> = async (req: Request, res: Response): Promise<Response> => {
+		try {
+			const saved = await this._<%= camelCase %>Service.save(req.body);
+			return res.send(saved);
+		} catch (error) {
+			console.error(`An error ocurred in <%= pascalCase %>Controller.save<%= pascalCase %>: ${error}`);
+			return res.status(500).send(`An error ocurred in <%= pascalCase %>Controller.save<%= pascalCase %>: ${error}`);
+		}
+	};
+
+	update<%= pascalCase %> = async (req: Request, res: Response): Promise<Response> => {
+		const { id } = req.params;
+
+		try {
+			const updated = await this._<%= camelCase %>Service.update(parseInt(id), req.body);
+			return res.send(updated);
+		} catch (error) {
+			console.error(`An error ocurred in <%= pascalCase %>Controller.update<%= pascalCase %>: ${error}`);
+			return res.status(500).send(`An error ocurred in <%= pascalCase %>Controller.update<%= pascalCase %>: ${error}`);
+		}
+	};
+
+	delete<%= pascalCase %> = async (req: Request, res: Response): Promise<Response> => {
+		const { id } = req.params;
+
+		try {
+			const deleted = await this._<%= camelCase %>Service.delete(parseInt(id));
+			return res.send(deleted);
+		} catch (error) {
+			console.error(`An error ocurred in <%= pascalCase %>Controller.delete<%= pascalCase %>: ${error}`);
+			return res.status(500).send(`An error ocurred in <%= pascalCase %>Controller.delete<%= pascalCase %>: ${error}`);
 		}
 	};
 }
@@ -31,8 +65,42 @@ const <%= pascalCase %>Controller = {};
 		const <%= camelCase %> = await _<%= camelCase %>Service.find(req.query);
 		return res.json(<%= camelCase %>);
 	} catch (error) {
-		console.error('Error in <%= pascalCase %>Controller.get<%= pascalCase %>', error);
-		return res.status(500).send(error);
+		console.error(`An error ocurred in <%= pascalCase %>Controller.get<%= pascalCase %>: ${error}`);
+		return res.status(500).send(`An error ocurred in <%= pascalCase %>Controller.get<%= pascalCase %>: ${error}`);
+	}
+};
+
+<%= pascalCase %>Controller.save<%= pascalCase %> = async (req, res) => {
+	try {
+		const saved = await _<%= camelCase %>Service.save(req.body);
+		return res.send(saved);
+	} catch (error) {
+		console.error(`An error ocurred in <%= pascalCase %>Controller.save<%= pascalCase %>: ${error}`);
+		return res.status(500).send(`An error ocurred in <%= pascalCase %>Controller.save<%= pascalCase %>: ${error}`);
+	}
+};
+
+<%= pascalCase %>Controller.update<%= pascalCase %> = async (req, res) => {
+	const { id } = req.params;
+
+	try {
+		const updated = await _<%= camelCase %>Service.update(parseInt(id), req.body);
+		return res.send(updated);
+	} catch (error) {
+		console.error(`An error ocurred in <%= pascalCase %>Controller.update<%= pascalCase %>: ${error}`);
+		return res.status(500).send(`An error ocurred in <%= pascalCase %>Controller.update<%= pascalCase %>: ${error}`);
+	}
+};
+
+<%= pascalCase %>Controller.delete<%= pascalCase %> = async (req, res) => {
+	const { id } = req.params;
+
+	try {
+		const deleted = await _<%= camelCase %>Service.delete(parseInt(id));
+		return res.send(deleted);
+	} catch (error) {
+		console.error(`An error ocurred in <%= pascalCase %>Controller.delete<%= pascalCase %>: ${error}`);
+		return res.status(500).send(`An error ocurred in <%= pascalCase %>Controller.delete<%= pascalCase %>: ${error}`);
 	}
 };
 

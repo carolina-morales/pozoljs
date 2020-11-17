@@ -1,7 +1,7 @@
 const UserRoutes = require('./user/user.routes');
 
 module.exports = function(server) {
-	const url = '/api/test';
+	const url = '/api';
 
-	server.use(url, UserRoutes);
+	server.use(`${url}/users`, UserRoutes);
 };

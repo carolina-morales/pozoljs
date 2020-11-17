@@ -8,6 +8,9 @@ const <%= camelCase %>Ctrl = new <%= pascalCase %>Controller();
 const router = Router();
 
 router.get('/', <%= camelCase %>Ctrl.get<%= pascalCase %>);
+router.post('/', <%= camelCase %>Ctrl.save<%= pascalCase %>);
+router.put('/:id', <%= camelCase %>Ctrl.update<%= pascalCase %>);
+router.delete('/:id', <%= camelCase %>Ctrl.delete<%= pascalCase %>);
 
 export default router;
 
@@ -19,7 +22,10 @@ const { get<%= pascalCase %> } = require('./<%= lowerCase %>.controller');
 
 const router = Router();
 
-router.get('/<%= camelCase %>', get<%= pascalCase %>);
+router.get('/', get<%= pascalCase %>);
+router.post('/', save<%= pascalCase %>);
+router.put('/:id', update<%= pascalCase %>);
+router.delete('/:id', delete<%= pascalCase %>);
 
 module.exports = router;
 
