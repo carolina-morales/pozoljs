@@ -1,11 +1,11 @@
 {
-	"name": "@daniel-cmorales/pozoljs",
-	"version": "0.5.5",
+	"name": "pozoljs",
+	"version": "0.5.6",
 	"description": "Initialize a node-express project with typescript or javascript and create full components to develop your backend apps faster.",
 	"main": "src/index.js",
 	"bin": {
-		"@daniel-cmorales/pozoljs": "./bin/pozoljs",
-		"pozoljs": "./bin/pozoljs"
+		"pozoljs": "./bin/pozoljs",
+		"@daniel-cmorales/pozoljs": "./bin/pozoljs"
 	},
 	"publishConfig": {
 		"access": "public"
@@ -29,14 +29,14 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/daniel-cmorales/pozol-js.git"
+		"url": "git+https://github.com/daniel-cmorales/pozoljs.git"
 	},
 	"author": "Daniel Morales, <daniel.cmorales3@gmai.com>",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/daniel-cmorales/pozol-js/issues"
+		"url": "https://github.com/daniel-cmorales/pozoljs/issues"
 	},
-	"homepage": "https://github.com/daniel-cmorales/pozol-js#readme",
+	"homepage": "https://github.com/daniel-cmorales/pozoljs#readme",
 	"dependencies": {
 		"chalk": "^4.1.0",
 		"cli-table3": "^0.6.0",

@@ -21,12 +21,12 @@ Pozoljs is not a framework.
 
 Global installation.
 ```shell
-npm install -g @daniel-cmorales/pozoljs
+npm install -g pozoljs
 ```
 
 Local installation.
 ```shell
-npm install @daniel-cmorales/pozoljs
+npm install pozoljs
 ```
 
 When the package is installed, you will can use `pozoljs` command.
