@@ -22,11 +22,13 @@ Pozoljs is not a framework.
 Global installation.
 ```shell
 npm install -g pozoljs
+yarn global add pozoljs
 ```
 
 Local installation.
 ```shell
 npm install pozoljs
+yarn add pozoljs
 ```
 
 When the package is installed, you will can use `pozoljs` command.
@@ -77,6 +79,11 @@ Create a new node-express projects with an initial structure. <br>
       <td>Destination directory. Must be a relative path.</td>
     </tr>
     <tr>
+      <td>--yarn</td>
+      <td></td>
+      <td>Use yarn instead npm.</td>
+    </tr>
+    <tr>
       <td>--help</td>
       <td></td>
       <td>For more information.</td>
@@ -115,7 +122,7 @@ Pozoljs builds a node-express project with an initial structure. This one helps 
 ├───.gitignore
 ├───package.json
 ├───pozoljs.config.json
-├───package-lock.json
+├───package-lock.json/yarn.lock
 └───tsconfig.json
 ```
 
@@ -179,5 +186,11 @@ In the package.json there are 3 commands:
 1. Run `npm run dev` to execute the project in development mode.
 2. Run `npm run build` to create the production project (just for typescript).
 3. Run `npm run start` to execute the project in the production mode.
+
+If you are using yarn:
+
+1. Run `yarn dev` to execute the project in development mode.
+2. Run `yarn build` to create the production project (just for typescript).
+3. Run `yarn start` to execute the project in the production mode.
 
 For more information, you can execute: `pozoljs --help`
