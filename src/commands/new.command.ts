@@ -14,6 +14,7 @@ export class NewCommand extends AbstractCommand {
 			.option('-g, --skip-git', 'Skip git repository initialization,')
 			.option('-i, --skip-install', 'Skip packages installation.')
 			.option('-l, --language [language]', 'Programming language to you use: JavaScript or TypeScript.')
+			.option('--yarn', 'Use yarn instead npm')
 			.action(async (name: string, command: Command) => {
 				try {
 					const options: Input[] = [];
@@ -21,6 +22,7 @@ export class NewCommand extends AbstractCommand {
 					options.push({ name: 'directory', value: command.directory });
 					options.push({ name: 'skip-git', value: command.skipGit });
 					options.push({ name: 'skip-install', value: command.skipInstall });
+					options.push({ name: 'yarn', value: command.yarn })
 
 					if (!!command.language) {
 						const langMatch = langs.includes(command.language);

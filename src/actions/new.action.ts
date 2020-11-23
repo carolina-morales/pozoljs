@@ -30,6 +30,8 @@ export class NewAction extends AbstractAction {
 			const directoryPath = options.find((option) => option.name === 'directory')!.value as string;
 			const directoryProject = join(directoryPath ? directoryPath : '', this.appName);
 
+			const isYarn = options.some((option) => option.name === 'yarn' && option.value);
+
 			const skipGit = options.some((option) => option.name === 'skip-git' && option.value);
 			const skipInstall = options.some((option) => option.name === 'skip-install' && option.value);
 
@@ -41,11 +43,11 @@ export class NewAction extends AbstractAction {
 			if (!skipGit) lists.push(generateTask('Initializing git', () => this.initGit(directoryProject)));
 
 			if (!skipInstall)
-				lists.push(generateTask('Installing packages', () => this.installPackages(directoryProject)));
+				lists.push(generateTask('Installing packages', () => this.installPackages(directoryProject, isYarn)));
 
 			const tasks = new Listr(lists);
 			await tasks.run();
-			this.finalMessage();
+			this.finalMessage(isYarn);
 		} catch (error) {
 			console.error(chalk.red.bold('ERROR'), error);
 			process.exit(1);
@@ -114,21 +116,31 @@ export class NewAction extends AbstractAction {
 		if (result.failed) throw new Error(ERROR_MESSAGES.GIT_INITIALIZATION_ERROR).message;
 	}
 
-	private async installPackages(directoryProject: string) {
+	private async installPackages(directoryProject: string, isYarn: boolean) {
 		const destPath = join(process.cwd(), directoryProject);
-		const result = await execa('npm', [ 'install' ], { cwd: destPath });
+		let result: execa.ExecaReturnValue<string> | undefined;
+		if (isYarn){
+			result = await execa('yarn', { cwd: destPath });
+		} else {
+			result = await execa('npm', [ 'install' ], { cwd: destPath });
+		}
 
 		if (result.failed) throw new Error(ERROR_MESSAGES.NPM_INSTALLING_ERROR).message;
 	}
 
-	private finalMessage() {
+	private finalMessage(isYarn: boolean) {
 		figlet('Pozoljs', (err, data) => {
 			if (err) throw err.message;
 
 			console.log(data, '\n');
 			console.log('Go into the project: ', chalk.blue(`cd ${this.appName}`));
-			console.log('Execute de command: ', chalk.blue(`npm run dev`), '\n');
-			if (this.language === 'typescript') console.log('Generate build: ', chalk.blue(`npm run build`), '\n');
+			if (isYarn){
+				console.log('Execute the command: ', chalk.blue(`yarn dev`), '\n');
+				if (this.language === 'typescript') console.log('Generate build: ', chalk.blue(`yarn build`), '\n');
+			} else {
+				console.log('Execute the command: ', chalk.blue(`npm run dev`), '\n');
+				if (this.language === 'typescript') console.log('Generate build: ', chalk.blue(`npm run build`), '\n');
+			}
 			console.log('Thanks for using Pozoljs, you can learn more here: ', chalk.blue('https://github.com/daniel-cmorales/pozol-js.git'), '\n');
 		});
 	}
