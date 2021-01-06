@@ -5,9 +5,6 @@ export interface I<%= pascalCase %> {
 	name: string;
 }
 
-export interface ISearch<%= pascalCase %> {
-	id?: number;
-	name?: string;
-}
+export interface ISearch<%= pascalCase %> extends Partial<I<%= pascalCase %>>{}
 
 <% } %>
