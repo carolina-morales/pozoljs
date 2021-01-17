@@ -37,16 +37,16 @@ When the package is installed, you will can use `pozoljs` command.
 
 ### Some concepts <a name="some-concepts"></a>
 
-1. **Component** is a small folder that contains the principal modules of an endpoint. For example, you will make endpoints about users, so in the users folder you have controller, service, routes files (and interface if it is a typescript project).
+1. **Component** is a small folder that contains the principal modules of an endpoint. For example, you will develop endpoints about users, so in the users folder you will have controller, service, routes files (and interface if it is a typescript project).
 2. **Service** connect with the database or return data that you need. In other words, the service provides data to the controller. In the start, the service file implements find, save, update and delete methods.
-3. **Controller** manipualte the data that obtains of the service or of the route. The controller call service methods through dependencie injection.
+3. **Controller** manipulate the data that obtains of the service or of the route. The controller call service methods through dependency injection.
 4. **Routes** about your component like GET, POST, PUT or DELETE.
 5. **Interface** is using in typescript like a data type.
 
 ### Build your project using pozoljs <a name="build-project"></a>
 
 Create a new node-express projects with an initial structure. <br>
-*`pozoljs <name> [options]`*
+*`pozoljs new <name> [options]`*
 
 #### Options available
 <table>
@@ -93,7 +93,7 @@ Create a new node-express projects with an initial structure. <br>
 
 ### Files Structure <a name="files-structure"></a>
 
-Pozoljs builds a node-express project with an initial structure. This one helps you to develop faster and escalable code. The initial structure is:
+Pozoljs builds a node-express project with an initial structure. This one helps you to develop faster and escalable code. The initial structure is: <br>
 ```shell
 ├────src
 │    ├───api
@@ -126,7 +126,7 @@ Pozoljs builds a node-express project with an initial structure. This one helps 
 └───tsconfig.json
 ```
 
-- **pozol config:** pozoljs needs this file configuration to generate files.
+- **pozol config:** pozoljs needs this file configuration to generate files or directories.
 - **src:** development code is here.
   - **api:** all your components will be created here.
   - **config:** the configuration like variables. Pozoljs create the enviroments folder with the development and production files.
