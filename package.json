@@ -4,8 +4,7 @@
 	"description": "Initialize a node-express project with typescript or javascript and create full components to develop your backend apps faster.",
 	"main": "src/index.js",
 	"bin": {
-		"pozoljs": "./bin/pozoljs",
-		"@daniel-cmorales/pozoljs": "./bin/pozoljs"
+		"pozoljs": "bin/pozoljs"
 	},
 	"publishConfig": {
 		"access": "public"
