@@ -1,12 +1,12 @@
 <% if (language == 'typescript') { %>
 
 import { AbstractService } from '../../global/helpers/abstract.service';
-import { ISearch<%= pascalCase %>, I<%= pascalCase %> } from './<%= lowerCase %>.interface';
+import { I<%= pascalCase %> } from './<%= lowerCase %>.interface';
 
 export default class <%= pascalCase %>Service extends AbstractService {
 	private <%= camelCase %>: I<%= pascalCase %>[] = [];
 
-	find = async (<%= camelCase %>: ISearch<%= pascalCase %>): Promise<I<%= pascalCase %>[]> => {
+	find = async (<%= camelCase %>: Partial<I<%= pascalCase %>>): Promise<I<%= pascalCase %>[]> => {
 		try {
 			return this.<%= camelCase %>;
 		} catch (error) {

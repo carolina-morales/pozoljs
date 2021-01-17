@@ -1,10 +1,10 @@
 import { AbstractService } from '../../global/helpers/abstract.service';
-import { ISearchUser, IUser } from './user.interface';
+import { IUser } from './user.interface';
 
 export default class UserService extends AbstractService {
 	private users: IUser[] = [];
 
-	find = async (user: ISearchUser): Promise<IUser[]> => {
+	find = async (user: Partial<IUser>): Promise<IUser[]> => {
 		try {
 			return this.users;
 		} catch (error) {
