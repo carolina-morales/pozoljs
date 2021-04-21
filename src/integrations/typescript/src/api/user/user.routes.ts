@@ -9,6 +9,10 @@ export default class UserRoutes {
   ) { }
 
   public init() {
+    this.getRoutes();
+    this.postRoutes();
+    this.putRoutes();
+    this.deleteRoutes();
     return this.router;
   }
 

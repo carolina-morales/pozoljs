@@ -11,6 +11,10 @@ export default class <%= pascalCase %>Routes {
   ) { }
 
   public init() {
+    this.getRoutes();
+    this.postRoutes();
+    this.putRoutes();
+    this.deleteRoutes();
     return this.router;
   }
 
