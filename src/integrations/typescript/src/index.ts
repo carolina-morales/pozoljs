@@ -1,8 +1,5 @@
-import server from './server';
+import Server from './server';
 
-server.listen(server.get('port'));
-console.log('Server is running on port', server.get('port'));
+const server = new Server();
 
-process.on('SIGINT', function() {
-    process.exit();
-});
+server.start();

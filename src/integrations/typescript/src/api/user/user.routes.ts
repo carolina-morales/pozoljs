@@ -1,14 +1,30 @@
 import { Router } from 'express';
-
 import UserController from './user.controller';
 
-const userCtrl = new UserController();
+export default class UserRoutes {
+  private router = Router();
 
-const router = Router();
+  constructor(
+    private _userCtrl = new UserController()
+  ) { }
 
-router.get('/', userCtrl.getUsers);
-router.post('/', userCtrl.saveUsers);
-router.put('/:id', userCtrl.updateUsers);
-router.delete('/:id', userCtrl.deleteUsers);
+  public init() {
+    return this.router;
+  }
 
-export default router;
+  private getRoutes() {
+    this.router.get('/', this._userCtrl.getUsers);
+  }
+
+  private postRoutes() {
+    this.router.post('/', this._userCtrl.saveUsers);
+  }
+
+  private putRoutes() {
+    this.router.put('/:id', this._userCtrl.updateUsers);
+  }
+
+  private deleteRoutes() {
+    this.router.delete('/:id', this._userCtrl.deleteUsers);
+  }
+}

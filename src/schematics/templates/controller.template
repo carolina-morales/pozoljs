@@ -10,47 +10,19 @@ export default class <%= pascalCase %>Controller {
 	constructor(private _<%= camelCase %>Service = new <%= pascalCase %>Service()) {}
 
 	get<%= pascalCase %> = async (req: Request, res: Response): Promise<Response> => {
-		try {
-			this.<%= camelCase %> = await this._<%= camelCase %>Service.find(req.query);
-			return res.json(this.<%= camelCase %>);
-		} catch (error) {
-			console.error(`An error ocurred in <%= pascalCase %>Controller.get<%= pascalCase %>: ${error}`);
-			return res.status(500).send(`An error ocurred in <%= pascalCase %>Controller.get<%= pascalCase %>: ${error}`);
-		}
+		throw new Error('Method not implemented.');
 	};
 
 	save<%= pascalCase %> = async (req: Request, res: Response): Promise<Response> => {
-		try {
-			const saved = await this._<%= camelCase %>Service.save(req.body);
-			return res.send(saved);
-		} catch (error) {
-			console.error(`An error ocurred in <%= pascalCase %>Controller.save<%= pascalCase %>: ${error}`);
-			return res.status(500).send(`An error ocurred in <%= pascalCase %>Controller.save<%= pascalCase %>: ${error}`);
-		}
+		throw new Error('Method not implemented.');
 	};
 
 	update<%= pascalCase %> = async (req: Request, res: Response): Promise<Response> => {
-		const { id } = req.params;
-
-		try {
-			const updated = await this._<%= camelCase %>Service.update(parseInt(id), req.body);
-			return res.send(updated);
-		} catch (error) {
-			console.error(`An error ocurred in <%= pascalCase %>Controller.update<%= pascalCase %>: ${error}`);
-			return res.status(500).send(`An error ocurred in <%= pascalCase %>Controller.update<%= pascalCase %>: ${error}`);
-		}
+		throw new Error('Method not implemented.');
 	};
 
 	delete<%= pascalCase %> = async (req: Request, res: Response): Promise<Response> => {
-		const { id } = req.params;
-
-		try {
-			const deleted = await this._<%= camelCase %>Service.delete(parseInt(id));
-			return res.send(deleted);
-		} catch (error) {
-			console.error(`An error ocurred in <%= pascalCase %>Controller.delete<%= pascalCase %>: ${error}`);
-			return res.status(500).send(`An error ocurred in <%= pascalCase %>Controller.delete<%= pascalCase %>: ${error}`);
-		}
+		throw new Error('Method not implemented.');
 	};
 }
 
@@ -61,47 +33,19 @@ const _<%= camelCase %>Service = require('./<%= lowerCase %>.service');
 const <%= pascalCase %>Controller = {};
 
 <%= pascalCase %>Controller.get<%= pascalCase %> = async (req, res) => {
-	try {
-		const <%= camelCase %> = await _<%= camelCase %>Service.find(req.query);
-		return res.json(<%= camelCase %>);
-	} catch (error) {
-		console.error(`An error ocurred in <%= pascalCase %>Controller.get<%= pascalCase %>: ${error}`);
-		return res.status(500).send(`An error ocurred in <%= pascalCase %>Controller.get<%= pascalCase %>: ${error}`);
-	}
+	throw new Error('Method not implemented.');
 };
 
 <%= pascalCase %>Controller.save<%= pascalCase %> = async (req, res) => {
-	try {
-		const saved = await _<%= camelCase %>Service.save(req.body);
-		return res.send(saved);
-	} catch (error) {
-		console.error(`An error ocurred in <%= pascalCase %>Controller.save<%= pascalCase %>: ${error}`);
-		return res.status(500).send(`An error ocurred in <%= pascalCase %>Controller.save<%= pascalCase %>: ${error}`);
-	}
+	throw new Error('Method not implemented.');
 };
 
 <%= pascalCase %>Controller.update<%= pascalCase %> = async (req, res) => {
-	const { id } = req.params;
-
-	try {
-		const updated = await _<%= camelCase %>Service.update(parseInt(id), req.body);
-		return res.send(updated);
-	} catch (error) {
-		console.error(`An error ocurred in <%= pascalCase %>Controller.update<%= pascalCase %>: ${error}`);
-		return res.status(500).send(`An error ocurred in <%= pascalCase %>Controller.update<%= pascalCase %>: ${error}`);
-	}
+	throw new Error('Method not implemented.');
 };
 
 <%= pascalCase %>Controller.delete<%= pascalCase %> = async (req, res) => {
-	const { id } = req.params;
-
-	try {
-		const deleted = await _<%= camelCase %>Service.delete(parseInt(id));
-		return res.send(deleted);
-	} catch (error) {
-		console.error(`An error ocurred in <%= pascalCase %>Controller.delete<%= pascalCase %>: ${error}`);
-		return res.status(500).send(`An error ocurred in <%= pascalCase %>Controller.delete<%= pascalCase %>: ${error}`);
-	}
+	throw new Error('Method not implemented.');
 };
 
 module.exports = <%= pascalCase %>Controller;

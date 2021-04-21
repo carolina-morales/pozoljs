@@ -1,18 +1,36 @@
 <% if (language == 'typescript') { %>
 
 import { Router } from 'express';
-
 import <%= pascalCase %>Controller from './<%= lowerCase %>.controller';
 
-const <%= camelCase %>Ctrl = new <%= pascalCase %>Controller();
-const router = Router();
+export default class <%= pascalCase %>Routes {
+  private router = Router();
 
-router.get('/', <%= camelCase %>Ctrl.get<%= pascalCase %>);
-router.post('/', <%= camelCase %>Ctrl.save<%= pascalCase %>);
-router.put('/:id', <%= camelCase %>Ctrl.update<%= pascalCase %>);
-router.delete('/:id', <%= camelCase %>Ctrl.delete<%= pascalCase %>);
+  constructor(
+    private _<%= camelCase %>Ctrl = new <%= pascalCase %>Controller()
+  ) { }
 
-export default router;
+  public init() {
+    return this.router;
+  }
+
+  private getRoutes() {
+    this.router.get('/', this._<%= camelCase %>Ctrl.get<%= pascalCase %>);
+  }
+
+  private postRoutes() {
+    this.router.post('/', this._<%= camelCase %>Ctrl.save<%= pascalCase %>);
+  }
+
+  private putRoutes() {
+    this.router.put('/:id', this._<%= camelCase %>Ctrl.update<%= pascalCase %>);
+  }
+
+  private deleteRoutes() {
+    this.router.delete('/:id', this._<%= camelCase %>Ctrl.delete<%= pascalCase %>);
+  }
+}
+
 
 <% } else { %>
 

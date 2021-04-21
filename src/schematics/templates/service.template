@@ -7,35 +7,19 @@ export default class <%= pascalCase %>Service extends AbstractService {
 	private <%= camelCase %>: I<%= pascalCase %>[] = [];
 
 	find = async (<%= camelCase %>: Partial<I<%= pascalCase %>>): Promise<I<%= pascalCase %>[]> => {
-		try {
-			return this.<%= camelCase %>;
-		} catch (error) {
-			throw error;
-		}
+		throw new Error('Method not implemented.');
 	};
 
 	save = async (<%= camelCase %>: I<%= pascalCase %>): Promise<any> => {
-		try {
-			return true;
-		} catch (error) {
-			throw error;
-		}
+		throw new Error('Method not implemented.');
 	};
 
 	update = async (id: number, <%= camelCase %>: I<%= pascalCase %>): Promise<any> => {
-		try {
-			return true;
-		} catch (error) {
-			throw error;
-		}
+		throw new Error('Method not implemented.');
 	};
 
 	delete = async (id: number): Promise<any> => {
-		try {
-			return true;
-		} catch (error) {
-			throw error;
-		}
+		throw new Error('Method not implemented.');
 	};
 }
 
@@ -44,35 +28,19 @@ export default class <%= pascalCase %>Service extends AbstractService {
 const <%= pascalCase %>Service = {};
 
 <%= pascalCase %>Service.find = async (<%= camelCase %>) => {
-	try {
-		return [];
-	} catch (error) {
-		throw error;
-	}
+	throw new Error('Method not implemented.');
 };
 
 <%= pascalCase %>Service.save = async (<%= camelCase %>) => {
-	try {
-		return true;
-	} catch (error) {
-		throw error;
-	}
+	throw new Error('Method not implemented.');
 };
 
 <%= pascalCase %>Service.update = async (id, <%= camelCase %>) => {
-	try {
-		return true;
-	} catch (error) {
-		throw error;
-	}
+	throw new Error('Method not implemented.');
 };
 
 <%= pascalCase %>Service.delete = async (id) => {
-	try {
-		return true;
-	} catch (error) {
-		throw error;
-	}
+	throw new Error('Method not implemented.');
 };
 
 module.exports = <%= pascalCase %>Service;
