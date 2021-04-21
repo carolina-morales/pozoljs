@@ -14,7 +14,7 @@
 
 1. Update documentation
 
-## v 0.6.5
+## v 0.7.0
 
 1. The `server.ts` file is a class, so it is the most readable and the most organized.
 2. The `index.ts` file just start the server, try not to configure anything here.
