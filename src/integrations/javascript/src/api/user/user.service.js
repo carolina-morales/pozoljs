@@ -1,35 +1,19 @@
 const UserService = {};
 
 UserService.find = async (user) => {
-	try {
-		return [];
-	} catch (error) {
-		throw error;
-	}
+	throw new Error('Method not implemented.');
 };
 
 UserService.save = async (user) => {
-	try {
-		return true;
-	} catch (error) {
-		throw error;
-	}
+	throw new Error('Method not implemented.');
 };
 
 UserService.update = async (id, user) => {
-	try {
-		return true;
-	} catch (error) {
-		throw error;
-	}
+	throw new Error('Method not implemented.');
 };
 
 UserService.delete = async (id) => {
-	try {
-		return true;
-	} catch (error) {
-		throw error;
-	}
+	throw new Error('Method not implemented.');
 };
 
 module.exports = UserService;
