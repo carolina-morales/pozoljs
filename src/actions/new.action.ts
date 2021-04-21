@@ -106,7 +106,7 @@ export class NewAction extends AbstractAction {
 
 	private async initGit(directoryProject: string) {
 		const destPath = join(process.cwd(), directoryProject);
-		const result = await execa('git', [ 'init' ], { cwd: destPath });
+		const result = await execa('git', ['init'], { cwd: destPath });
 
 		const gitIgnorePath = join(__dirname, `../integrations/templates/gitignore.template`);
 		let gitIgnoreContent = readFileSync(gitIgnorePath, 'utf8');
@@ -119,10 +119,10 @@ export class NewAction extends AbstractAction {
 	private async installPackages(directoryProject: string, isYarn: boolean) {
 		const destPath = join(process.cwd(), directoryProject);
 		let result: execa.ExecaReturnValue<string> | undefined;
-		if (isYarn){
+		if (isYarn) {
 			result = await execa('yarn', { cwd: destPath });
 		} else {
-			result = await execa('npm', [ 'install' ], { cwd: destPath });
+			result = await execa('npm', ['install'], { cwd: destPath });
 		}
 
 		if (result.failed) throw new Error(ERROR_MESSAGES.NPM_INSTALLING_ERROR).message;
@@ -134,14 +134,14 @@ export class NewAction extends AbstractAction {
 
 			console.log(data, '\n');
 			console.log('Go into the project: ', chalk.blue(`cd ${this.appName}`));
-			if (isYarn){
+			if (isYarn) {
 				console.log('Execute the command: ', chalk.blue(`yarn dev`), '\n');
 				if (this.language === 'typescript') console.log('Generate build: ', chalk.blue(`yarn build`), '\n');
 			} else {
 				console.log('Execute the command: ', chalk.blue(`npm run dev`), '\n');
 				if (this.language === 'typescript') console.log('Generate build: ', chalk.blue(`npm run build`), '\n');
 			}
-			console.log('Thanks for using Pozoljs, you can learn more here: ', chalk.blue('https://github.com/daniel-cmorales/pozol-js.git'), '\n');
+			console.log('Thanks for using Pozoljs, you can learn more here: ', chalk.blue('https://github.com/carolina-cmorales/pozol-js.git'), '\n');
 		});
 	}
 }

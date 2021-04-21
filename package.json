@@ -28,14 +28,14 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/daniel-cmorales/pozoljs.git"
+		"url": "git+https://github.com/carolina-morales/pozoljs.git"
 	},
-	"author": "Daniel Morales, <daniel.cmorales3@gmai.com>",
+	"author": "Carolina Morales, <carolina.cmorales3@gmail.com>",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/daniel-cmorales/pozoljs/issues"
+		"url": "https://github.com/carolina-morales/pozoljs/issues"
 	},
-	"homepage": "https://github.com/daniel-cmorales/pozoljs#readme",
+	"homepage": "https://github.com/carolina-morales/pozoljs#readme",
 	"dependencies": {
 		"chalk": "^4.1.0",
 		"cli-table3": "^0.6.0",
