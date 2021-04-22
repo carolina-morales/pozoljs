@@ -29,7 +29,7 @@ export default class Server {
   }
 
   private init() {
-    ApiRoutes(this.server);
+    new ApiRoutes(this.server).loadRoutes();
   }
 
   public start() {

@@ -1,34 +1,24 @@
 import { Router } from 'express';
+import { AbstractRoutes } from '../../global/helpers/abstract.routes';
+import { IRoute, Methods } from '../../global/interfaces';
+import { checkMw } from '../../middlewares/checkMw.middleware';
 import UserController from './user.controller';
 
-export default class UserRoutes {
-  private router = Router();
+export default class UserRoutes extends AbstractRoutes {
+  private _userController = new UserController();
 
-  constructor(
-    private _userCtrl = new UserController()
-  ) { }
-
-  public init() {
-    this.getRoutes();
-    this.postRoutes();
-    this.putRoutes();
-    this.deleteRoutes();
-    return this.router;
+  constructor() {
+    super();
   }
 
-  private getRoutes() {
-    this.router.get('/', this._userCtrl.getUsers);
-  }
+  public path: string = '/usuarios';
+  protected routes: IRoute[] = [
+    {
+      path: '/',
+      method: Methods.GET,
+      handler: this._userController.getUsers,
+      localMiddleware: [checkMw]
+    }
+  ];
 
-  private postRoutes() {
-    this.router.post('/', this._userCtrl.saveUsers);
-  }
-
-  private putRoutes() {
-    this.router.put('/:id', this._userCtrl.updateUsers);
-  }
-
-  private deleteRoutes() {
-    this.router.delete('/:id', this._userCtrl.deleteUsers);
-  }
 }
