@@ -1,12 +1,13 @@
 <% if (language == 'typescript') { %>
 
 import { Router } from 'express';
-import AbstractRoutes from '../../global/helpers/abstract.routes';
+import { AbstractRoutes } from '../../global/helpers/abstract.routes';
+import { IRoute, Methods } from '../../global/interfaces';
 import <%= pascalCase %>Controller from './<%= lowerCase %>.controller';
 
 export default class <%= pascalCase %>Routes extends AbstractRoutes {
   constructor(
-    private _<%= camelCase %>Ctrl = new <%= pascalCase %>Controller()
+    private _<%= camelCase %>Controller = new <%= pascalCase %>Controller()
   ) {
     super();
   }
