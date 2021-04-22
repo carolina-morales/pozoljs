@@ -1,40 +1,26 @@
 <% if (language == 'typescript') { %>
 
 import { Router } from 'express';
+import AbstractRoutes from '../../global/helpers/abstract.routes';
 import <%= pascalCase %>Controller from './<%= lowerCase %>.controller';
 
-export default class <%= pascalCase %>Routes {
-  private router = Router();
-
+export default class <%= pascalCase %>Routes extends AbstractRoutes {
   constructor(
     private _<%= camelCase %>Ctrl = new <%= pascalCase %>Controller()
-  ) { }
-
-  public init() {
-    this.getRoutes();
-    this.postRoutes();
-    this.putRoutes();
-    this.deleteRoutes();
-    return this.router;
+  ) {
+    super();
   }
 
-  private getRoutes() {
-    this.router.get('/', this._<%= camelCase %>Ctrl.get<%= pascalCase %>);
-  }
-
-  private postRoutes() {
-    this.router.post('/', this._<%= camelCase %>Ctrl.save<%= pascalCase %>);
-  }
-
-  private putRoutes() {
-    this.router.put('/:id', this._<%= camelCase %>Ctrl.update<%= pascalCase %>);
-  }
-
-  private deleteRoutes() {
-    this.router.delete('/:id', this._<%= camelCase %>Ctrl.delete<%= pascalCase %>);
-  }
+  public path: string = '/<%= lowerCase %>';
+  protected routes: IRoute[] = [
+    {
+      path: '/',
+      method: Methods.GET,
+      handler: this._<%= camelCase %>Controller.get<%= pascalCase %>,
+      localMiddleware: []
+    }
+  ];
 }
-
 
 <% } else { %>
 
