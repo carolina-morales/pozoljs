@@ -19,4 +19,6 @@
 1. The `server.ts` file is a class, so it is the most readable and the most organized.
 2. The `index.ts` file just start the server, try not to configure anything here.
 3. Component routes configuration file is now a class, allowing better control and organization of code.
-4. The service and controller methods only return an error while not being implemented.
+4. An abstract class was created for routes files, so that routes configuration file extends of this abstract class more easily to configure the routing component.
+5. The service and controller methods only return an error while not being implemented.
+6. The `/api/index.ts` file is a class, so it only sends the server and the route files to create routing.
