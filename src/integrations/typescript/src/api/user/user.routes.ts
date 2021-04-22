@@ -5,9 +5,9 @@ import { checkMw } from '../../middlewares/checkMw.middleware';
 import UserController from './user.controller';
 
 export default class UserRoutes extends AbstractRoutes {
-  private _userController = new UserController();
-
-  constructor() {
+  constructor(
+    private _userController = new UserController()
+  ) {
     super();
   }
 
