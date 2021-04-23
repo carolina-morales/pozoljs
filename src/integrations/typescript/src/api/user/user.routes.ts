@@ -1,4 +1,3 @@
-import { Router } from 'express';
 import { AbstractRoutes } from '../../global/helpers/abstract.routes';
 import { IRoute, Methods } from '../../global/interfaces';
 import { checkMw } from '../../middlewares/checkMw.middleware';
@@ -8,10 +7,9 @@ export default class UserRoutes extends AbstractRoutes {
   constructor(
     private _userController = new UserController()
   ) {
-    super();
+    super('/usuarios');
   }
 
-  public path: string = '/usuarios';
   protected routes: IRoute[] = [
     {
       path: '/',

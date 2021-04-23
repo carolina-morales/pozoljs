@@ -3,8 +3,12 @@ import { IRoute } from '../interfaces';
 
 export abstract class AbstractRoutes {
   protected router = Router();
-  public abstract path: string;
+  public path: string;
   protected abstract readonly routes: IRoute[] = [];
+
+  constructor(path: string) {
+    this.path = path;
+  }
 
   public setRoutes = (): Router => {
     for (const route of this.routes) {
