@@ -1,20 +1,8 @@
-import { Express } from 'express';
+import AbstractApiRoutes from '../global/helpers/abstract.api-routes';
 import UserRoutes from './user/user.routes';
 
-export default class ApiRoutes {
-	private path = '/api'
-	private server: Express;
-	private routes = [
+export default class ApiRoutes extends AbstractApiRoutes {
+	protected routes = [
 		new UserRoutes()
-	]
-
-	constructor(server: Express) {
-		this.server = server;
-	}
-
-	public loadRoutes = () => {
-		this.routes.forEach(route => {
-			this.server.use(this.path, route.setRoutes());
-		})
-	}
+	];
 }
