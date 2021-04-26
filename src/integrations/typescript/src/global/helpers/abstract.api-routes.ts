@@ -1,18 +1,22 @@
 import { Express } from 'express';
-import { AbstractRoutes } from "./abstract.routes";
+import { IConfigRoute } from '../interfaces';
 
 export default abstract class AbstractApiRoutes {
   protected server: Express;
   protected path: string = '/api';
-  protected abstract readonly routes: AbstractRoutes[];
+  protected abstract readonly configRoutes: IConfigRoute[];
 
   constructor(server: Express) {
     this.server = server;
   }
 
   public loadRoutes = (): void => {
-    this.routes.forEach(route => {
-      this.server.use(this.path, route.setRoutes());
-    });
+    for (const config of this.configRoutes) {
+      for (const middleware of config.middlewares) {
+        this.server.use(`${this.path}${config.routes.path}`, middleware);
+      }
+
+      this.server.use(this.path, config.routes.setRoutes());
+    }
   }
 }
