@@ -29,3 +29,4 @@
 2. You can configure the global middlewares for component routes in Api Routes.
 3. Rename property `localMiddlewares` for routes array to `middlewares`.
 4. Fix path name of the first component when you create a new pozoljs project.
+5. Allow to use regex expression to configure the path of the route.
