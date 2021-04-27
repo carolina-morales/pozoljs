@@ -9,7 +9,7 @@ export enum Methods {
 }
 
 export interface IRoute {
-  path: string,
+  path: string | RegExp,
   method: Methods,
   handler: (req: Request, res: Response, next: NextFunction) => void | Promise<any>;
   middlewares: ((req: Request, res: Response, next: NextFunction) => any | Promise<any>)[]
