@@ -16,7 +16,7 @@ export default class <%= pascalCase %>Routes extends AbstractRoutes {
       path: '/',
       method: Methods.GET,
       handler: this._<%= camelCase %>Controller.get<%= pascalCase %>,
-      localMiddleware: []
+      middlewares: []
     }
   ];
 }
