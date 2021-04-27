@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { IRoute } from '../interfaces';
+import { IRoute, Methods } from '../interfaces';
 
 export abstract class AbstractRoutes {
   protected router = Router();
@@ -12,23 +12,18 @@ export abstract class AbstractRoutes {
 
   public setRoutes = (): Router => {
     for (const route of this.routes) {
-      const routeFullPath = `${this.path}${route.path}`;
-      for (const middleware of route.localMiddleware) {
-        this.router.use(routeFullPath, middleware);
-      };
-
       switch (route.method) {
-        case 'GET':
-          this.router.get(routeFullPath, route.handler);
+        case Methods.GET:
+          this.router.get(route.path, route.middlewares.map(mw => mw), route.handler);
           break;
-        case 'POST':
-          this.router.post(routeFullPath, route.handler);
+        case Methods.POST:
+          this.router.post(route.path, route.middlewares.map(mw => mw), route.handler);
           break;
-        case 'PUT':
-          this.router.put(routeFullPath, route.handler);
+        case Methods.PUT:
+          this.router.put(route.path, route.middlewares.map(mw => mw), route.handler);
           break;
-        case 'DELETE':
-          this.router.delete(routeFullPath, route.handler);
+        case Methods.DELETE:
+          this.router.delete(route.path, route.middlewares.map(mw => mw), route.handler);
           break;
         default: throw new Error('Not a valid method');
       }

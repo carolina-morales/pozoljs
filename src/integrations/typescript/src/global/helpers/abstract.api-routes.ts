@@ -12,11 +12,7 @@ export default abstract class AbstractApiRoutes {
 
   public loadRoutes = (): void => {
     for (const config of this.configRoutes) {
-      for (const middleware of config.middlewares) {
-        this.server.use(`${this.path}${config.routes.path}`, middleware);
-      }
-
-      this.server.use(this.path, config.routes.setRoutes());
+      this.server.use(`${this.path}${config.routes.path}`, config.middlewares.map(mw => mw), config.routes.setRoutes());
     }
   }
 }
