@@ -12,7 +12,7 @@ export interface IRoute {
   path: string,
   method: Methods,
   handler: (req: Request, res: Response, next: NextFunction) => void | Promise<any>;
-  localMiddleware: ((req: Request, res: Response, next: NextFunction) => any | Promise<any>)[]
+  middlewares: ((req: Request, res: Response, next: NextFunction) => any | Promise<any>)[]
 }
 
 export interface IConfigRoute {
