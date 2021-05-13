@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 
-const currentEnv = require('./config/environments');
+const { environments } = require('./config/environments');
 
 const ApiRoutes = require('./api');
 
@@ -10,7 +10,7 @@ const ApiRoutes = require('./api');
 const server = express();
 
 // settings
-server.set('port', currentEnv.PORT || 3000);
+server.set('port', environments.PORT || 3000);
 
 // middlewares
 server.use(morgan('common'));

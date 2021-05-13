@@ -2,7 +2,7 @@ import express, { json, urlencoded, Express } from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 
-import currentEnv from './config/environments';
+import { environments } from './config/environments';
 
 import ApiRoutes from './api';
 
@@ -18,7 +18,7 @@ export default class Server {
   }
 
   private config() {
-    this.server.set('port', currentEnv.PORT || 3000);
+    this.server.set('port', environments.PORT || 3000);
   }
 
   private middlewares() {
@@ -35,13 +35,13 @@ export default class Server {
   public start() {
     try {
       this.server.listen(this.server.get('port'));
-      console.log('Server is running on port', this.server.get('port'));
+      console.log(`Server ${environments.APP_NAME} is running on port`, this.server.get('port'));
 
       process.on('SIGINT', function () {
         process.exit();
       });
     } catch (error) {
-      console.log('An error ocurred when the server try to start');
+      console.error('An error ocurred when the server try to start');
       process.exit(1);
     }
   }
