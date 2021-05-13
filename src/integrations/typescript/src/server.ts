@@ -2,7 +2,7 @@ import express, { json, urlencoded, Express } from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 
-import { environments } from './config/environments';
+import { environments } from './global/config';
 
 import ApiRoutes from './api';
 

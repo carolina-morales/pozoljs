@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 
-const { environments } = require('./config/environments');
+const { environments } = require('./global/config');
 
 const ApiRoutes = require('./api');
 
