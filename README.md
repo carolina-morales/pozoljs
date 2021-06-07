@@ -99,19 +99,18 @@ Pozoljs builds a node-express project with an initial structure. This one helps 
 │    ├───api
 │    │   └───component
 │    │   │    ├───component.controller.ts/js
-│    │   │    ├───component.interface.ts/js
+│    │   │    ├───component.interface.ts
 │    │   │    ├───component.routes.ts/js
 │    │   │    └───component.service.ts/js
 │    │   └───index.ts/js
-│    ├───config
-│    │   └────environments
-│    │        ├───development.ts/js
-│    │        ├───index.ts/js
-│    │        └───production.ts/js
 │    ├───global
 │    │   ├───helpers
-│    │   │    └───abstract.service.ts/js
-│    │   ├───interfaces.ts/js
+│    │   │    └───abstract.api-routes.ts
+│    │   │    └───abstract.routes.ts
+│    │   │    └───abstract.service.ts
+│    │   ├───config.ts/js
+│    │   ├───interfaces.ts
+│    │   └───utils.ts/js
 │    │   └───variables.ts/js
 │    ├───middlewares
 │    ├───database.ts/js
@@ -119,6 +118,7 @@ Pozoljs builds a node-express project with an initial structure. This one helps 
 │    └───server.ts/js
 ├───.editorconfig
 ├───.env
+├───.env.example
 ├───.gitignore
 ├───package.json
 ├───pozoljs.config.json
@@ -126,20 +126,12 @@ Pozoljs builds a node-express project with an initial structure. This one helps 
 └───tsconfig.json
 ```
 
-- **pozol config:** pozoljs needs this file configuration to generate files or directories.
-- **src:** development code is here.
-  - **api:** all your components will be created here.
-  - **config:** the configuration like variables. Pozoljs create the enviroments folder with the development and production files.
-  - **global:** your project maybe using external services like others REST API or maybe you have variables that you will use in much components.
-  - **middlewares:** here you create all the middlewares that you will use in others components.
-  - **main files (index, database and server):** this files you can code the server and database configuration, and you can initialize your project using index file. Pozoljs code the initial server configuration for you.
-
-## Commands <a name="commands"></a>
+## Schematics <a name="commands"></a>
 
 All commands have the full type and abreviation type. <br>
 *`pozoljs g <schematic> [name]`*
 
-### Schematics available <a name="#schematic-available"></a>
+### Schematics availables <a name="#schematic-available"></a>
 <table>
   <thead>
     <tr>
@@ -183,14 +175,8 @@ The project created using pozoljs is to get an initial and generic structure of 
 
 In the package.json there are 3 commands:
 
-1. Run `npm run dev` to execute the project in development mode.
-2. Run `npm run build` to create the production project (just for typescript).
-3. Run `npm run start` to execute the project in the production mode.
-
-If you are using yarn:
-
-1. Run `yarn dev` to execute the project in development mode.
-2. Run `yarn build` to create the production project (just for typescript).
-3. Run `yarn start` to execute the project in the production mode.
+1. Run `npm run dev`/`yarn dev` to execute the project in development mode.
+2. Run `npm run build`/`yarn build` to create the production project (just for typescript).
+3. Run `npm run start`/`yarn start` to execute the project in the production mode.
 
 For more information, you can execute: `pozoljs --help`

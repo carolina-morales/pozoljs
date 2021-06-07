@@ -30,3 +30,8 @@
 3. Rename property `localMiddlewares` for routes array to `middlewares`.
 4. Fix path name of the first component when you create a new pozoljs project.
 5. Allow to use regex expression to configure the path of the route.
+
+## v 0.8.0
+
+1. Config directory has not used, using a config file instead of that.
+2. Now you have a environment variables file as an example, but remember that file should not upload to your repository.
