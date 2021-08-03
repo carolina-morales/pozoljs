@@ -1,6 +1,6 @@
 {
 	"name": "pozoljs",
-	"version": "0.8.2",
+	"version": "0.8.3",
 	"description": "Initialize a node-express project with typescript or javascript and create full components to develop your backend apps faster.",
 	"main": "src/index.js",
 	"bin": {
