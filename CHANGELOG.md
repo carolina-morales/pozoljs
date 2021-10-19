@@ -35,3 +35,7 @@
 
 1. Config directory has not used, using a config file instead of that.
 2. Now you have a environment variables file as an example, but remember that file should not upload to your repository.
+
+## v 0.8.4
+
+1. Fix abstract constant when generate routes automatically.
