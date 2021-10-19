@@ -4,7 +4,7 @@ import { IRoute, Methods } from '../interfaces';
 export abstract class AbstractRoutes {
   protected router = Router();
   public path: string;
-  protected abstract readonly routes: IRoute[] = [];
+  protected readonly routes: IRoute[] = [];
 
   constructor(path: string) {
     this.path = path;
